@@ -19,7 +19,7 @@ app.whenReady().then(() => {
     window(BrowserWindow, ipcMain, path, settings);
     execute(path);
     // Steroid Service / Misc
-    steroid(discordPresence());
+    steroid();
     //discordPresence(); // Currently not working as intended, fixes needed
 }).catch(error => {
     fs.writeFile('log.txt', JSON.stringify(error), function (err){
