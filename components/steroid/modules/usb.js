@@ -6,4 +6,5 @@ const usb = {
     }
 }
 
+
 module.exports = usb;
