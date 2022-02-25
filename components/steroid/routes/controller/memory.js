@@ -13,5 +13,4 @@ const memory = async (req, res) => {
             return res.send({error: "Function error, please try 'usage', 'layout' on URL query parameters."})
     }
 };
-
 module.exports = memory;

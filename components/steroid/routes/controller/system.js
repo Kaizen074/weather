@@ -28,5 +28,4 @@ const system = async (req, res) => {
             return res.send({error: "Function error, please try 'time', 'os', 'uuid', 'users', 'processes', 'processload', 'services' on URL query parameters."});
     }
 };
-
 module.exports = system;

@@ -1,6 +1,7 @@
 const os = require('os');
-const {delay} = require('./helper');
 const si = require('systeminformation');
+
+const {delay} = require('./helper');
 
 const cpu = {
     usage: async () => {
@@ -96,5 +97,4 @@ const cpu = {
         return await si.cpuTemperature();
     }
 };
-
 module.exports = cpu;

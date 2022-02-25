@@ -19,6 +19,5 @@ const motherboard = async (req, res) => {
             res.send({error: "Function error, please try 'system', 'bios', 'baseboard', 'chassis' on URL query parameters."})
             break;
     }
-}
-
+};
 module.exports = motherboard;

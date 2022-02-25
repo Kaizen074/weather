@@ -16,5 +16,4 @@ const wifi = async (req, res) => {
             return res.send({error: "Function error, please try 'networks', 'interfaces', 'connections' on URL query parameters."})
     }
 };
-
 module.exports = wifi;

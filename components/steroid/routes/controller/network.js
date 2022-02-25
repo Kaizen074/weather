@@ -35,6 +35,5 @@ const network = async (req, res) => {
         default:
             return res.send({error: "Function error, please try 'defaultinterface', 'defaultgateway', 'interfaces', 'stats', 'connections', 'urlping', 'hostping' on URL query parameters."})
     }
-}
-
+};
 module.exports = network;

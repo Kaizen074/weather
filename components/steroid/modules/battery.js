@@ -5,5 +5,4 @@ const battery = {
         return await si.battery();
     }
 };
-
 module.exports = battery;
