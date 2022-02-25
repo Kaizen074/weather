@@ -1,26 +1,24 @@
 const path = require('path');
-const {exec} = require('child_process');
+const {execFile} = require('child_process');
+const banned = ['cmd', 'powershell', '\Windows', '\windows', '%SystemRoot%', '%WINDIR%', 'Steroid'];
 
 const execute = async (executable, parameters) => {
-    executable = path.join(executable);
-    const banned = ['cmd', 'powershell', '/Windows', '%SystemRoot%', '%WINDIR%', 'Steroid'];
-
-    let data = [];
-
-    /*
-        exec('"'+executable+'"'+parameters).unref();
-        return {executed: true,}
-    */
-
-    banned.some((element) => {
-        if (executable.match(new RegExp(element))){ // If we match one of the banned words in the executable path
-            data.push({error: "You are not allowed to execute this command."});
-            //return {error: "You are not allowed to execute this command."};
-        } else {
-            data.push({success: "all works"});
-        }
+    let isAccepted = false;
+    executable = '"'+executable+'"'; // If there are folders with spaces, this will fix the issue.
+    parameters != undefined ? executable += ' '+parameters : false;
+    banned.forEach((element) => {
+          executable.includes(element) ? // If we match one of the banned words in the executable path
+          isReady = true : false; // isAccepted will be true, and won't execute the program
     });
-
-    return data;
+    if (!isAccepted){
+        let child = execFile(executable, {shell: true}, (error, stdout, stderr) => {
+            if (error) {
+              throw error; // In case that something happens
+            }
+        });
+        return {executed: true};
+    } else {
+        return {error: "This program cannot be executed."};
+    }
 }
 module.exports = execute;
