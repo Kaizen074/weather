@@ -3,4 +3,5 @@ const uptime = async (os) => {
         uptime: parseInt(os.uptime())
     }
 }
+
 module.exports = uptime;

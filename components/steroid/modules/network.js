@@ -60,4 +60,5 @@ const network = {
         return await si.inetLatency(ip);
     }
 };
+
 module.exports = network;

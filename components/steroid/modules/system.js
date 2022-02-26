@@ -13,6 +13,9 @@ const system = {
     users: async () => {
         return si.users();
     },
+    display: async () => {
+        return (await si.graphics()).displays;
+    },
     processes: async () => {
         return si.processes();
     },

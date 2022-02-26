@@ -4,4 +4,5 @@ const user = async (os) => {
         info: os.userInfo(['utf8'])
     }
 };
+
 module.exports = user;

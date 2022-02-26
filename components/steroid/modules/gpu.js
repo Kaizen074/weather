@@ -1,6 +1,7 @@
 const si = require('systeminformation');
 
 const gpu = async () => {
-    return si.graphics();
+    return (await si.graphics()).controllers;
 };
+
 module.exports = gpu;

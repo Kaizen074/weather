@@ -20,4 +20,5 @@ const motherboard = async (req, res) => {
             break;
     }
 };
+
 module.exports = motherboard;

@@ -8,7 +8,7 @@ const cpu = {
         let model = os.cpus()[0].model.trim();
         let previous = os.cpus();
         let current = "";
-        await delay(300);
+        await delay(500);
         current = os.cpus();
         if (previous.length){
             let usage = {
@@ -97,4 +97,5 @@ const cpu = {
         return await si.cpuTemperature();
     }
 };
+
 module.exports = cpu;

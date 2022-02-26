@@ -9,4 +9,5 @@ const execute = async (req, res) => {
     }
     return res.send(data);
 };
+
 module.exports = execute;

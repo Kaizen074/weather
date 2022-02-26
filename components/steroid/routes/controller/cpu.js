@@ -3,10 +3,10 @@ const handler = require('../../modules/cpu');
 const cpu = async (req, res) => {
     let data;
     switch(req.query.function){
-        case 'usage':
+        case 'minimal':
             data = await handler.usage();
             return res.send(data);
-        case 'detailedusage':
+        case 'detailed':
             data = await handler.detailed();
             return res.send(data);
         case 'info':
@@ -16,7 +16,8 @@ const cpu = async (req, res) => {
             data = await handler.temperature();
             return res.send(data);
         default:
-            return res.send({error: "Function error, please try 'usage', 'detailedusage', 'info', 'temperature' on URL query parameters."});
+            return res.send({error: "Function error, please try 'minimal', 'detailed', 'info', 'temperature' on URL query parameters."});
     }
 }
+
 module.exports = cpu;
