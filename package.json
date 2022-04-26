@@ -7,16 +7,19 @@
     "main": "main.js",
     "scripts": {
         "start": "electron --trace-warnings .",
-        "compile": "electron-packager . Steroid --overwrite --platform=win32 --arch=ia32 --out=release_builds --version-string.FileDescription='Wallpaper engine web extension running on steroids' --version-string.ProductName='Steroid' --icon=./favicon.ico",
+        "compile": "electron-packager . Steroid --overwrite --platform=win32 --out=release_builds --version-string.FileDescription='Wallpaper engine web extension running on steroids' --version-string.ProductName='Steroid' --win32metadata.requested-execution-level=highestAvailable --icon=./favicon.ico",
         "compile-dev": "electron-packager . steroid --overwrite --platform=win32 --arch=ia32  --out=release_builds --version-string.FileDescription='Wallpaper engine web extension running on steroids' --version-string.ProductName='Steroid' --win32metadata.requested-execution-level=highestAvailable"
     },
     "devDependencies": {
-        "electron": "^13.6.2",
+        "electron": "^17.1.2",
         "electron-packager": "^15.2.0",
         "electron-reload": "^1.5.0"
     },
     "dependencies": {
-        "discord-rich-presence": "^0.0.8",
+        "@discordjs/rest": "^0.3.0",
+        "discord-api-types": "^0.29.0",
+        "discord-rpc": "^4.0.1",
+        "discord.js": "^13.6.0",
         "express": "^4.17.1",
         "systeminformation": "^5.9.15"
     }
