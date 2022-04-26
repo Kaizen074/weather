@@ -12,7 +12,6 @@ exports.tray = (app, Menu, Tray, ipcMain, path, settings, autolaunch, fs) => {
                 } else {
                     autolaunch(path, app, 'delete');
                 }
-                // Write to settings file the change
                 settings.autoexec = contextMenu.items[2].submenu.items[0].checked;
                 let data = JSON.stringify(settings, null, "\t");
                 fs.writeFileSync(path.join(app.getAppPath(), '/settings.json'), data);
@@ -28,5 +27,9 @@ exports.tray = (app, Menu, Tray, ipcMain, path, settings, autolaunch, fs) => {
     appTray.addListener("double-click", () => {
         ipcMain.emit('window-control', false, 'show');
     });
+
+    if (contextMenu.items[2].submenu.items[0].checked){
+        autolaunch(path, app, 'create');
+    }
 }
 

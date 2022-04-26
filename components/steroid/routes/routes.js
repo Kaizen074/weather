@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const controller = {
+    hello: require('./controller/hello'),
     cpu: require('./controller/cpu'),
     gpu: require('./controller/gpu'),
     usb: require('./controller/usb'),
@@ -17,7 +18,7 @@ const controller = {
     filesystem: require('./controller/filesystem'),
     motherboard: require('./controller/motherboard'),
 }
-
+router.get('/', controller.hello);
 router.get('/cpu', controller.cpu);
 router.get('/gpu', controller.gpu);
 router.get('/usb', controller.usb);

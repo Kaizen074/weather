@@ -1,14 +1,32 @@
 exports.discordPresence = () => {
-    const client = require('discord-rich-presence')('853837896369045544');
-    try {
-        client.updatePresence({
-            state: 'Running...',
-            details: 'Wallpaper Engine Web Extension',
-            largeImageKey: 'steroid-profile-dark',
-            startTimestamp: Date.now(),
-            instance: true,
-        });
-    } catch (error){
-        console.warn(error);
-    }
+    // const clientId = '853837896369045544';
+    // const discordRPC = require('discord-rpc');
+    // const rpc = new discordRPC.Client({transport: 'ipc'});
+    // const startTimestamp = Date.now();
+
+    // discordRPC.register(clientId);
+    // rpc.login({clientId}).catch(console.error);
+    // rpc.on('ready', async () => {
+    //     setInterval(async () => {
+    //         discordRPC.register(clientId);
+    //         rpc.login({clientId}).catch(console.error);
+    //         if (!rpc) return
+    //         rpc.setActivity({
+    //             details: 'WALLPAPER NAME',
+    //             startTimestamp: startTimestamp,
+    //             largeImageKey: 'steroid-profile-dark',
+    //             largeImageText: 'Wallpaper Engine Web Extension (v0.97-alpha)',
+    //             instance: false,
+    //             buttons: [
+    //                 {
+    //                     label: 'Website',
+    //                     url: 'https://steroid-app.github.io'
+    //                 },{
+    //                     label: 'Download',
+    //                     url: 'https://steroid-app.github.io'
+    //                 }
+    //             ]
+    //         });
+    //     }, 2000);
+    // });
 }
