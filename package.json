@@ -21,6 +21,7 @@
         "discord-rpc": "^4.0.1",
         "discord.js": "^13.6.0",
         "express": "^4.17.1",
-        "systeminformation": "^5.9.15"
+        "systeminformation": "^5.9.15",
+        "uaup-js": "^0.0.22"
     }
 }
