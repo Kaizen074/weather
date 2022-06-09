@@ -2,6 +2,6 @@
 	"exit": false,
 	"window": true,
 	"discord": true,
-	"autoexec": true,
+	"autoexec": false,
 	"version": "1.0.0"
 }

@@ -1,4 +1,5 @@
-exports.window = (BrowserWindow, ipcMain, path, settings) => {
+exports.window = (app, BrowserWindow, ipcMain, path, settings) => {
+
     const window = new BrowserWindow({
         show: false,
         resizable: true,
@@ -8,12 +9,11 @@ exports.window = (BrowserWindow, ipcMain, path, settings) => {
         minHeight: 600,
         center: true,
         webPreferences: {
-            nodeIntegration: true,
             webSecurity: true,
-            allowRunningInsecureContent: false,
-            contextIsolation: false
+            contextIsolation: true,
+            preload: path.join(app.getAppPath(), './render/scripts/index.js')
         },
-        backgroundColor: "#000000",
+        backgroundColor: "#202020",
         icon: path.join(__dirname, '../favicon.ico')
     });
     
@@ -26,9 +26,9 @@ exports.window = (BrowserWindow, ipcMain, path, settings) => {
         return false;
     });
     
-    //window.webContents.openDevTools();
-    //window.loadFile("render/index.html");
-    //window.once('focus', () => window.flashFrame(false));
+    window.webContents.openDevTools();
+    window.loadFile("render/html/index.html");
+    window.once('focus', () => window.flashFrame(false));
     
     ipcMain.on('window-control', (event, arg) => {
         switch(arg){
@@ -37,8 +37,8 @@ exports.window = (BrowserWindow, ipcMain, path, settings) => {
             case "maximize": window.maximize(); break;
             case "restore": window.unmaximize(); break;
             case "close": window.hide(); break;
-            //case "alert": window.flashFrame(true); break;
+            case "alert": window.flashFrame(true); break;
             case "pin": window.isAlwaysOnTop() ? window.setAlwaysOnTop(false) : window.setAlwaysOnTop(true); break;
         }
     });
-}
+};

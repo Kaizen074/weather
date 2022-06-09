@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const uaup = require('uaup-js');
+
 const { app, BrowserWindow, Menu, Tray, ipcMain } = require('electron');
 
 try {
@@ -14,16 +14,20 @@ try {
     // const { discordPresence } = require('./components/presence');
 
     app.whenReady().then(async () => {
-        await updater(uaup, BrowserWindow, ipcMain, path, settings); // Check for updates
-        tray(app, Menu, Tray, ipcMain, path, settings, autolaunch, fs); // Activate tray icons
-        window(BrowserWindow, ipcMain, path, settings); // Run Steroid window
-        execute(path); // Steroid service execution
-        steroid(); // Aditional steroid functions
-
-        // discordPresence(); // Currently not working as intended, fixes needed, better work on the good stuff
+        tray(app, Menu, Tray, ipcMain, path, settings, autolaunch, fs); // Activate tray icons, if something fails you can exit the app
+        let uptodate = await updater(app, path); // Check for updates, returns true or false, nothing fancy
+        if (uptodate){
+            window(app, BrowserWindow, ipcMain, path, settings); // Run Steroid window
+            execute(path); // Steroid service execution
+            steroid(); // Aditional steroid functions
+        };
+    }).catch(error => {
+        console.warn(error);
+        throw new Error(error);
     });
 } catch(error) {
     console.warn(error);
+    throw new Error(error);
 }
 
 

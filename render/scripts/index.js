@@ -1,5 +1,5 @@
 window.onload = () => {
-    const { ipcRenderer } = require('electron');
+    /*const { ipcRenderer } = require('electron');
     ipcRenderer.on('a', (event, arg) => {
         document.getElementById("main").innerHTML += "response";
     });
@@ -22,4 +22,5 @@ window.onload = () => {
     const NOTIFICATION_TITLE = 'Steroid';
     const NOTIFICATION_BODY = 'Electron reloaded...';
     //notification(NOTIFICATION_TITLE, NOTIFICATION_BODY);
-}
+    */
+};
