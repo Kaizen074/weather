@@ -1,5 +1,4 @@
 exports.window = (app, BrowserWindow, ipcMain, path, settings) => {
-
     const window = new BrowserWindow({
         show: false,
         resizable: true,
