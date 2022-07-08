@@ -25,7 +25,7 @@ exports.window = (app, BrowserWindow, ipcMain, path, settings) => {
         return false;
     });
     
-    window.webContents.openDevTools();
+    // window.webContents.openDevTools();
     window.loadFile("render/html/index.html");
     window.once('focus', () => window.flashFrame(false));
     

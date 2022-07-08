@@ -1,9 +1,10 @@
 let appTray = '';
 
 exports.tray = (app, Menu, Tray, ipcMain, path, settings, autolaunch, fs) => {
+    const version = require('../version.json');
     appTray = new Tray(path.join(__dirname, '../favicon.ico'));
     const contextMenu = Menu.buildFromTemplate([
-        {label: 'Steroid - v0.1-Alpha', enabled: false,},
+        {label: `Steroid - ${version}`, enabled: false,},
         {type: "separator"},
         {label: 'Settings', submenu: [
             {label: 'Run on startup',  type: 'checkbox', checked: settings.autoexec, click: () => {
@@ -24,12 +25,12 @@ exports.tray = (app, Menu, Tray, ipcMain, path, settings, autolaunch, fs) => {
     
     appTray.setToolTip("Steroid");
     appTray.setContextMenu(contextMenu);
-    appTray.addListener("double-click", () => {
+    /*appTray.addListener("double-click", () => {
         ipcMain.emit('window-control', false, 'show');
-    });
+    });*/
 
     if (contextMenu.items[2].submenu.items[0].checked){
         autolaunch(path, app, 'create');
-    }
+    };
 }
 
