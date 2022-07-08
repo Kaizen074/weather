@@ -33,7 +33,7 @@ const network = async (req, res) => {
             }
             return res.send(data);
         default:
-            return res.send({error: "Function error, please try 'defaultinterface', 'defaultgateway', 'interfaces', 'stats', 'connections', 'urlping', 'hostping' on URL query parameters."})
+            return res.send({error: "Function error, please try '?function=defaultinterface', '?function=defaultgateway', '?function=interfaces', '?function=stats', '?function=connections', '?function=urlping', '?function=hostping' on URL query parameters."})
     }
 };
 

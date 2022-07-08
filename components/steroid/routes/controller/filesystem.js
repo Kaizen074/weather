@@ -13,7 +13,7 @@ const filesystem = async (req, res) => {
             data = await handler.block();
             return res.send(data);
         default:
-            res.send({error: "Function error, please try 'info', 'layout', 'block'  on URL query parameters."})
+            res.send({error: "Function error, please try '?function=info', '?function=layout', '?function=block'  on URL query parameters."})
             break;
     }
 };

@@ -10,7 +10,7 @@ const memory = async (req, res) => {
             data = await handler.layout();
             return res.send(data);
         default:
-            return res.send({error: "Function error, please try 'usage', 'layout' on URL query parameters."})
+            return res.send({error: "Function error, please try '?function=usage', '?function=layout' on URL query parameters."})
     }
 };
 

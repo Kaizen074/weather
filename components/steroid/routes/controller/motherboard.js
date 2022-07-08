@@ -7,16 +7,16 @@ const motherboard = async (req, res) => {
             data = await handler.system();
            return  res.send(data);
         case 'bios':
-            data = await handler.bios(); //module.bios
+            data = await handler.bios();
             return res.send(data);
         case 'baseboard':
-            data = await handler.baseboard(); //module.baseboard
+            data = await handler.baseboard();
             return res.send(data);
         case 'chassis':
-            data = await handler.chassis(); // module.chassis
+            data = await handler.chassis();
             return res.send(data);
         default:
-            res.send({error: "Function error, please try 'system', 'bios', 'baseboard', 'chassis' on URL query parameters."})
+            res.send({error: "Function error, please try '?function=system', '?function=bios', '?function=baseboard', '?function=chassis' on URL query parameters."})
             break;
     }
 };

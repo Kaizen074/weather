@@ -28,7 +28,7 @@ const system = async (req, res) => {
             data = await handler.services('*');
             return res.send(data);
         default:
-            return res.send({error: "Function error, please try 'time', 'os', 'uuid', 'users', 'display', 'processes', 'processload', 'services' on URL query parameters."});
+            return res.send({error: "Function error, please try '?function=time', '?function=os', '?function=uuid', '?function=users', '?function=display', '?function=processes', '?function=processload', '?function=services' on URL query parameters."});
     }
 };
 

@@ -16,7 +16,7 @@ const cpu = async (req, res) => {
             data = await handler.temperature();
             return res.send(data);
         default:
-            return res.send({error: "Function error, please try 'minimal', 'detailed', 'info', 'temperature' on URL query parameters."});
+            return res.send({error: "Function error, please try '?function=minimal', '?function=detailed', '?function=info', '?function=temperature' on URL query parameters."});
     }
 }
 

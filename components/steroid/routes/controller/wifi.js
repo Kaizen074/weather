@@ -13,7 +13,7 @@ const wifi = async (req, res) => {
             data = await helper.connections();
             return res.send(data);
         default:
-            return res.send({error: "Function error, please try 'networks', 'interfaces', 'connections' on URL query parameters."})
+            return res.send({error: "Function error, please try '?function=networks', '?function=interfaces', '?function=connections' on URL query parameters."})
     }
 };
 
