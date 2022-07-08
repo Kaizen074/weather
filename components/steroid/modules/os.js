@@ -1,4 +1,5 @@
-const os = async (os) => {
+const os = async () => {
+    const os = require('os');
     return {
         archquitecture: os.arch(),
         platform: os.platform(),

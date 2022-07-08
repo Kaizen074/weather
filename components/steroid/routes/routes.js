@@ -3,6 +3,7 @@ const router = express.Router();
 
 const controller = {
     hello: require('./controller/hello'),
+    os: require('./controller/os'),
     cpu: require('./controller/cpu'),
     gpu: require('./controller/gpu'),
     usb: require('./controller/usb'),
@@ -19,6 +20,7 @@ const controller = {
     motherboard: require('./controller/motherboard'),
 }
 router.get('/', controller.hello);
+router.get('/os', controller.os);
 router.get('/cpu', controller.cpu);
 router.get('/gpu', controller.gpu);
 router.get('/usb', controller.usb);
@@ -29,9 +31,10 @@ router.get('/system', controller.system);
 router.get('/network', controller.network);
 router.get('/printer', controller.printer);
 router.get('/battery', controller.battery);
-router.get('/execute', controller.execute);
 router.get('/bluetooth', controller.bluetooth);
 router.get('/filesystem', controller.filesystem);
 router.get('/motherboard', controller.motherboard);
+
+router.post('/execute', controller.execute);
 
 module.exports = router;
