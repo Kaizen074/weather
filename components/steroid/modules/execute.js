@@ -1,4 +1,3 @@
-const path = require('path');
 const {execFile} = require('child_process');
 const banned = ['cmd', 'powershell', '\Windows', '\windows', '%SystemRoot%', '%WINDIR%', 'Steroid'];
 
@@ -19,7 +18,7 @@ const execute = async (executable, parameters) => {
         return {executed: true};
     } else {
         return {error: "This program cannot be executed."};
-    }
-}
+    };
+};
 
 module.exports = execute;
