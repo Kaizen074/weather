@@ -31,7 +31,20 @@ const download = async (windowMessenger, isElectron, messages, downloadURL, priv
                 };
 
                 const download = await axios(options);
-                let downloadFolder = path.join(installationDirectory, './updates');
+                let downloadFolder = '';
+                if (isElectron){
+                    let currentDir = installationDirectory.split(path.sep);
+                    let isASAR = currentDir.find((element) => {
+                        if (element.includes('app.asar')){
+                            return true;
+                        };
+                    });
+                    if (isASAR){
+                        downloadFolder = path.join(installationDirectory, '../updates');
+                    } else {
+                        downloadFolder = path.join(installationDirectory, './updates');
+                    }
+                };
 
                 if (!fs.existsSync(downloadFolder)) {
                     fs.mkdirSync(downloadFolder);

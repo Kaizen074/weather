@@ -54,11 +54,7 @@ class SakuraUpdater {
             return tagname;
         };
         this.download = async () => {
-            if (this.currentVersion !== newVersion){
-                return await download(windowMessenger, this.isElectron, this.messages, downloadURL, this.privateToken, this.installationDirectory, newVersion);
-            } else {
-                return false;
-            };   
+            return await download(windowMessenger, this.isElectron, this.messages, downloadURL, this.privateToken, this.installationDirectory, newVersion);
         };
         this.update = async () => {
             if (this.currentVersion !== newVersion){

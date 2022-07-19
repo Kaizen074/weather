@@ -13,9 +13,8 @@ const updater = async (app, path) => {
             webPreferences: {
                 webSecurity: true,
                 contextIsolation: true,
-                preload: path.join(app.getAppPath(), './render/scripts/test.js')
+                preload: path.join(app.getAppPath(), './render/scripts/updater.js')
             },
-            backgroundColor: "#000000",
             icon: path.join(__dirname, '../favicon.ico')
         };
         
