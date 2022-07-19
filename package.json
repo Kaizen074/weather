@@ -1,14 +1,13 @@
 {
     "name": "steroid-app",
-    "productName": "Steroid",
-    "version": "0.1.0",
+    "productName": "Steroid App",
+    "version": "0.7.0-alpha",
     "author": "N0XT",
-    "description": "Customizable web extension for Wallpaper Engine.",
+    "description": "Web wallpapers running on steroids.",
     "main": "main.js",
     "scripts": {
         "start": "electron --trace-warnings .",
-        "compile": "electron-packager . steroid --overwrite --platform=win32 --out=release_builds --version-string.FileDescription='Wallpaper engine web extension running on steroids' --version-string.ProductName='Steroid' --win32metadata.requested-execution-level=highestAvailable --icon=./favicon.ico",
-        "compile-dev": "electron-packager . steroid --overwrite --platform=win32 --arch=ia32  --out=release_builds --version-string.FileDescription='Wallpaper engine web extension running on steroids' --version-string.ProductName='Steroid' --win32metadata.requested-execution-level=highestAvailable"
+        "compile": "electron-packager . steroid --overwrite --platform=win32 --out=dist --ignore=dist -version-string.FileDescription='Wallpaper engine web extension running on steroids' --version-string.ProductName='Steroid' --win32metadata.requested-execution-level=highestAvailable --icon=./favicon.ico"
     },
     "devDependencies": {
         "electron": "^17.1.2",
@@ -18,6 +17,7 @@
     "dependencies": {
         "adm-zip": "^0.5.9",
         "axios": "^0.27.2",
+        "compare-versions": "^4.1.3",
         "cors": "^2.8.5",
         "express": "^4.17.1",
         "systeminformation": "^5.9.15"
