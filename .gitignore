@@ -1,3 +1,4 @@
 /node_modules
-/release_builds
-/log.txt
+/dist
+/updates
+package-lock.json
