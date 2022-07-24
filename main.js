@@ -3,6 +3,8 @@ const path = require('path');
 
 const { app, BrowserWindow, Menu, Tray, ipcMain } = require('electron');
 
+const Sakura = require('@ivanbogaeb/sakura');
+
 try {
     const settings = require('./settings.json');
     const { tray } = require('./components/tray');
@@ -14,7 +16,7 @@ try {
 
     app.whenReady().then(async () => {
         tray(app, Menu, Tray, ipcMain, path, settings, autolaunch, fs); // Activate tray icons, if something fails you can exit the app
-        let uptodate = await updater(app, path); // Check for updates, returns true or false, nothing fancy
+        let uptodate = await updater(app, path, Sakura); // Check for updates, returns true or false, nothing fancy
         if (uptodate){
             window(app, BrowserWindow, ipcMain, path, settings); // Run Steroid window
             execute(path); // Steroid service execution

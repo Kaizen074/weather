@@ -1,5 +1,4 @@
-const updater = async (app, path) => {
-    const SakuraUpdater = require('./sakuraupdater/index');
+const updater = async (app, path, Sakura) => {
     try {
         let windowProperties = {
             show: true,
@@ -18,7 +17,7 @@ const updater = async (app, path) => {
             icon: path.join(__dirname, '../favicon.ico')
         };
         
-        let sakura = new SakuraUpdater({
+        let sakura = new Sakura({
             gitUsername: 'ivanbogaeb',
             gitRepository: 'steroid-app',
             privateToken: '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',
