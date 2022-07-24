@@ -64,8 +64,8 @@ and integrate systems more effectively.
 - [ ] File handling.
 - [ ] Native widgets.
 - [ ] Notes and schedule.
-- [x] Extense computer metrics.
-- [x] Foreing program execution.
+- [X] Extense computer metrics.
+- [X] Foreing program execution.
 - [X] Real time computer information.
 
 <br>
