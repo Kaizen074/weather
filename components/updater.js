@@ -22,8 +22,8 @@ const updater = async (app, path, Sakura) => {
             gitRepository: 'steroid-app',
             privateToken: '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',
             installationDirectory: path.join(__dirname, '../'),
-            hasEXEFile: true,
-            fileEXEName: 'steroid.exe',
+            hasExecutable: true,
+            executableName: 'steroid.exe',
             isElectron: true,
             currentVersion: require('../version.json'),
         });
