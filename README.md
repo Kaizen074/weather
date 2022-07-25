@@ -204,6 +204,7 @@ There are two ways to request CPU details. One is hooked to the [Metrics API](#m
 
 - #### Endpoints:
   - **Metrics** `http://localhost:7666/cpu`
+  
   Real time CPU usage (Individual threads and total), power consumption (Individual and total), voltages and temperature.
     ```javascript
     {
@@ -234,6 +235,7 @@ There are two ways to request CPU details. One is hooked to the [Metrics API](#m
     }
     ```
   - **Information** `http://localhost:7665/cpu`
+
     CPU details such as architecture, features, cache size, etc.
     ```javascript
     {
@@ -276,6 +278,7 @@ Just as the CPU, GPU details have two method of request. One is hooked to the [M
 
 - #### Endpoints:
   - **Metrics** `http://localhost:7666/gpu`
+
   Real time GPU usage, voltages for cores, chip and memory, power consumption of every core component, clock speeds of the core and memory, temperatures across the card, load and type, memory usage and transfer bandwidth.
     ```javascript
     {
