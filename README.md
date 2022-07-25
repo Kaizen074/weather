@@ -202,39 +202,38 @@ Steroid has many features you can use. All of them are here on the table down be
 
 There are two ways to request CPU details. One is hooked to the [Metrics API](#main-areas) and the other one is hooked to the [Native support and information API](#main-areas). Both work in completely different ways and are designed to be complementary to each other.
 
-- #### Endpoints:
-  **Metrics** `http://localhost:7666/cpu`
+#### Endpoints:
 
-  Real time CPU usage (Individual threads and total), power consumption (Individual and total), voltages and temperature.
-
-  ```javascript
-  {
-    name: "Ryzen 5 2600",
-    usage: {
-      total: 5.671316
-      threads: [{ // Amount of threads depends on your CPU
-        name: "CPU Core #1",
-        usage: 14.23864
-      }, ..., {
-        name: "CPU Core #12",
-        usage: 2.996027
-      }],
-    },
-    package: 15.592143, // CPU power consumption in Watts
-    cores: [{
-      "name": "Core #1",
-      "frequency": 3718.115, // Realtime CPU frequency in MHz
-      "voltage": 1.19375, // Realtime voltage usage
-      "power": 1.615892 // Individual power consumption in Watts
-  }, ..., {
-      "name": "Core #6",
-      "frequency": 3718.115, 
-      "voltage": 1.19375, 
-      "power": 1.950423 
-  }],
-  "temperature": 41.25001 // T-Junction temperature in °C
-  }
-  ```
+**Metrics** `http://localhost:7666/cpu`
+Real time CPU usage (Individual threads and total), power consumption (Individual and total), voltages and temperature.
+```javascript
+{
+  name: "Ryzen 5 2600",
+  usage: {
+    total: 5.671316
+    threads: [{ // Amount of threads depends on your CPU
+      name: "CPU Core #1",
+      usage: 14.23864
+    }, ..., {
+      name: "CPU Core #12",
+      usage: 2.996027
+    }],
+  },
+  package: 15.592143, // CPU power consumption in Watts
+  cores: [{
+    "name": "Core #1",
+    "frequency": 3718.115, // Realtime CPU frequency in MHz
+    "voltage": 1.19375, // Realtime voltage usage
+    "power": 1.615892 // Individual power consumption in Watts
+}, ..., {
+    "name": "Core #6",
+    "frequency": 3718.115, 
+    "voltage": 1.19375, 
+    "power": 1.950423 
+}],
+"temperature": 41.25001 // T-Junction temperature in °C
+}
+```
 
 **Information** `http://localhost:7665/cpu`
 
@@ -273,13 +272,14 @@ CPU details such as architecture, features, cache size, etc.
 
 Just as the CPU, GPU details have two method of request. One is hooked to the [Metrics API](#main-areas) and the other one is hooked to the [Native support and information API](#main-areas). Both work in completely different ways and are designed to be complementary to each other.
 
-- #### Support:
+#### Support:
   - AMD Integrated Graphics.
   - Intel Integrated Graphics.
   - AMD. ***(Still under adjustments)***
   - Nvidia.
 
-- #### Endpoints:
+#### Endpoints:
+
 **Metrics** `http://localhost:7666/gpu`
 
 Real time GPU usage, voltages for cores, chip and memory, power consumption of every core component, clock speeds of the core and memory, temperatures across the card, load and type, memory usage and transfer bandwidth.
@@ -333,34 +333,36 @@ Real time GPU usage, voltages for cores, chip and memory, power consumption of e
   }
 }
 ```
-- **Information** `http://localhost:7665/gpu`
+
+**Information** `http://localhost:7665/gpu`
+
 Returns information about your GPU vendor, model, how it's connected, VRAM, deviceID, driver version, used memory, free memory, temperature, power limit, clocks and more.
 Althought, it is not recommended to use this API endpoint to request real time information since it's more task demanding that it's counterpart explained previously.
-    ```javascript
-      [
-        {
-            "vendor": "NVIDIA",
-            "model": "NVIDIA GeForce RTX 3060",
-            "bus": "PCI",
-            "vram": 12288,
-            "vramDynamic": false,
-            "subDeviceId": "0x263019DA",
-            "driverVersion": "497.09",
-            "name": "NVIDIA GeForce RTX 3060",
-            "pciBus": "00000000:07:00.0",
-            "memoryTotal": 12288,
-            "memoryUsed": 1579,
-            "memoryFree": 10709,
-            "utilizationGpu": 6,
-            "utilizationMemory": 9,
-            "temperatureGpu": 47,
-            "powerDraw": 18.53,
-            "powerLimit": 170,
-            "clockCore": 209,
-            "clockMemory": 403
-        }
-      ]
-    ```
+```javascript
+  [
+    {
+        "vendor": "NVIDIA",
+        "model": "NVIDIA GeForce RTX 3060",
+        "bus": "PCI",
+        "vram": 12288,
+        "vramDynamic": false,
+        "subDeviceId": "0x263019DA",
+        "driverVersion": "497.09",
+        "name": "NVIDIA GeForce RTX 3060",
+        "pciBus": "00000000:07:00.0",
+        "memoryTotal": 12288,
+        "memoryUsed": 1579,
+        "memoryFree": 10709,
+        "utilizationGpu": 6,
+        "utilizationMemory": 9,
+        "temperatureGpu": 47,
+        "powerDraw": 18.53,
+        "powerLimit": 170,
+        "clockCore": 209,
+        "clockMemory": 403
+    }
+  ]
+```
 
 #
 
