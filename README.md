@@ -203,39 +203,38 @@ Steroid has many features you can use. All of them are here on the table down be
 There are two ways to request CPU details. One is hooked to the [Metrics API](#main-areas) and the other one is hooked to the [Native support and information API](#main-areas). Both work in completely different ways and are designed to be complementary to each other.
 
 - #### Endpoints:
+  **Metrics** `http://localhost:7666/cpu`
 
-**Metrics** `http://localhost:7666/cpu`
+  Real time CPU usage (Individual threads and total), power consumption (Individual and total), voltages and temperature.
 
-Real time CPU usage (Individual threads and total), power consumption (Individual and total), voltages and temperature.
-
-```javascript
-{
-  name: "Ryzen 5 2600",
-  usage: {
-    total: 5.671316
-    threads: [{ // Amount of threads depends on your CPU
-      name: "CPU Core #1",
-      usage: 14.23864
-    }, ..., {
-      name: "CPU Core #12",
-      usage: 2.996027
-    }],
-  },
-  package: 15.592143, // CPU power consumption in Watts
-  cores: [{
-    "name": "Core #1",
-    "frequency": 3718.115, // Realtime CPU frequency in MHz
-    "voltage": 1.19375, // Realtime voltage usage
-    "power": 1.615892 // Individual power consumption in Watts
-}, ..., {
-    "name": "Core #6",
-    "frequency": 3718.115, 
-    "voltage": 1.19375, 
-    "power": 1.950423 
-}],
-"temperature": 41.25001 // T-Junction temperature in °C
-}
-```
+  ```javascript
+  {
+    name: "Ryzen 5 2600",
+    usage: {
+      total: 5.671316
+      threads: [{ // Amount of threads depends on your CPU
+        name: "CPU Core #1",
+        usage: 14.23864
+      }, ..., {
+        name: "CPU Core #12",
+        usage: 2.996027
+      }],
+    },
+    package: 15.592143, // CPU power consumption in Watts
+    cores: [{
+      "name": "Core #1",
+      "frequency": 3718.115, // Realtime CPU frequency in MHz
+      "voltage": 1.19375, // Realtime voltage usage
+      "power": 1.615892 // Individual power consumption in Watts
+  }, ..., {
+      "name": "Core #6",
+      "frequency": 3718.115, 
+      "voltage": 1.19375, 
+      "power": 1.950423 
+  }],
+  "temperature": 41.25001 // T-Junction temperature in °C
+  }
+  ```
 
 **Information** `http://localhost:7665/cpu`
 
