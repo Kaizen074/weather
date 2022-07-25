@@ -203,68 +203,72 @@ Steroid has many features you can use. All of them are here on the table down be
 There are two ways to request CPU details. One is hooked to the [Metrics API](#main-areas) and the other one is hooked to the [Native support and information API](#main-areas). Both work in completely different ways and are designed to be complementary to each other.
 
 - #### Endpoints:
-  - **Metrics** `http://localhost:7666/cpu`
-  
-  Real time CPU usage (Individual threads and total), power consumption (Individual and total), voltages and temperature.
-    ```javascript
-    {
-      name: "Ryzen 5 2600",
-      usage: {
-        total: 5.671316
-        threads: [{ // Amount of threads depends on your CPU
-          name: "CPU Core #1",
-          usage: 14.23864
-        }, ..., {
-          name: "CPU Core #12",
-          usage: 2.996027
-        }],
-      },
-      package: 15.592143, // CPU power consumption in Watts
-      cores: [{
-        "name": "Core #1",
-        "frequency": 3718.115, // Realtime CPU frequency in MHz
-        "voltage": 1.19375, // Realtime voltage usage
-        "power": 1.615892 // Individual power consumption in Watts
-    }, ..., {
-        "name": "Core #6",
-        "frequency": 3718.115, 
-        "voltage": 1.19375, 
-        "power": 1.950423 
-    }],
-    "temperature": 41.25001 // T-Junction temperature in °C
-    }
-    ```
-  - **Information** `http://localhost:7665/cpu`
 
-    CPU details such as architecture, features, cache size, etc.
-    ```javascript
-    {
-      manufacturer: "AMD",
-      brand: "Ryzen 5 2600 Six-Core Processor",
-      vendor: "AuthenticAMD",
-      family: "23",
-      model: "8",
-      stepping: "2",
-      revision: "2050",
-      voltage: 1.2,
-      speed: 3.4, // Stock frequency in GHz
-      speedMin: 3.4, // Stock minimum frequency in GHz
-      speedMax: 3.4, // Stock maximum frequency in GHz
-      governor: "", // Depends on your type of CPU
-      cores: 12, // Threads
-      physicalCores: 6,
-      processors: 1, // Amount of processors installed
-      socket: "AM4",
-      flags: "de pse tsc msr sep mtrr mca cmov psn clfsh ds mmx fxsr sse sse2 ss htt tm ia64 pbe",
-      virtualization: false, // If you are running on a virtual machine
-      cache: {
-          "l1d": 288,
-          "l1i": 288,
-          "l2": 3145728,
-          "l3": 16777216
-      }
-    }
-    ```
+**Metrics** `http://localhost:7666/cpu`
+
+Real time CPU usage (Individual threads and total), power consumption (Individual and total), voltages and temperature.
+
+```javascript
+{
+  name: "Ryzen 5 2600",
+  usage: {
+    total: 5.671316
+    threads: [{ // Amount of threads depends on your CPU
+      name: "CPU Core #1",
+      usage: 14.23864
+    }, ..., {
+      name: "CPU Core #12",
+      usage: 2.996027
+    }],
+  },
+  package: 15.592143, // CPU power consumption in Watts
+  cores: [{
+    "name": "Core #1",
+    "frequency": 3718.115, // Realtime CPU frequency in MHz
+    "voltage": 1.19375, // Realtime voltage usage
+    "power": 1.615892 // Individual power consumption in Watts
+}, ..., {
+    "name": "Core #6",
+    "frequency": 3718.115, 
+    "voltage": 1.19375, 
+    "power": 1.950423 
+}],
+"temperature": 41.25001 // T-Junction temperature in °C
+}
+```
+
+**Information** `http://localhost:7665/cpu`
+
+CPU details such as architecture, features, cache size, etc.
+
+```javascript
+{
+  manufacturer: "AMD",
+  brand: "Ryzen 5 2600 Six-Core Processor",
+  vendor: "AuthenticAMD",
+  family: "23",
+  model: "8",
+  stepping: "2",
+  revision: "2050",
+  voltage: 1.2,
+  speed: 3.4, // Stock frequency in GHz
+  speedMin: 3.4, // Stock minimum frequency in GHz
+  speedMax: 3.4, // Stock maximum frequency in GHz
+  governor: "", // Depends on your type of CPU
+  cores: 12, // Threads
+  physicalCores: 6,
+  processors: 1, // Amount of processors installed
+  socket: "AM4",
+  flags: "de pse tsc msr sep mtrr mca cmov psn clfsh ds mmx fxsr sse sse2 ss htt tm ia64 pbe",
+  virtualization: false, // If you are running on a virtual machine
+  cache: {
+      "l1d": 288,
+      "l1i": 288,
+      "l2": 3145728,
+      "l3": 16777216
+  }
+}
+```
 
 ### GPU:
 
@@ -277,62 +281,62 @@ Just as the CPU, GPU details have two method of request. One is hooked to the [M
   - Nvidia.
 
 - #### Endpoints:
-  - **Metrics** `http://localhost:7666/gpu`
+**Metrics** `http://localhost:7666/gpu`
 
-  Real time GPU usage, voltages for cores, chip and memory, power consumption of every core component, clock speeds of the core and memory, temperatures across the card, load and type, memory usage and transfer bandwidth.
-    ```javascript
-    {
-      name: "NVIDIA GeForce RTX 3060",
-      voltage: { // Volts
-        core: 0, 
-        soc: 0,
-        memory: 0
-      },
-      power: { // Watts
-        core: 0,  
-        ppt: 0,
-        soc: 0,
-        package: 34.232
-      },
-      clock: { // MHz
-        core: 367, 
-        soc: 0,
-        memory: 810
-      },
-      temperature: { // °C
-        core: 50,
-        memory: 0,
-        vddc: 0,
-        mvdd: 0,
-        soc: 0,
-        liquid: 0,
-        plx: 0,
-        hotspot: 61.375
-      },
-      load: { // %
-        core: 2,
-        memory: 4,
-        videoengine: 0,
-        videoencode: 0,
-        videodecode: 0,
-        d3d: 3.200708,
-        decode: 0,
-        encode: 0
-      },
-      memory: { // MB
-        free: 70.85547,
-        used: 12288,
-        total: 1604.941
-      },
-      transfer: { // Kbps
-        rx: 0,
-        tx: 0
-      }
-    }
-    ```
-  - **Information** `http://localhost:7665/gpu`
-  Returns information about your GPU vendor, model, how it's connected, VRAM, deviceID, driver version, used memory, free memory, temperature, power limit, clocks and more.
-  Althought, it is not recommended to use this API endpoint to request real time information since it's more task demanding that it's counterpart explained previously.
+Real time GPU usage, voltages for cores, chip and memory, power consumption of every core component, clock speeds of the core and memory, temperatures across the card, load and type, memory usage and transfer bandwidth.
+```javascript
+{
+  name: "NVIDIA GeForce RTX 3060",
+  voltage: { // Volts
+    core: 0, 
+    soc: 0,
+    memory: 0
+  },
+  power: { // Watts
+    core: 0,  
+    ppt: 0,
+    soc: 0,
+    package: 34.232
+  },
+  clock: { // MHz
+    core: 367, 
+    soc: 0,
+    memory: 810
+  },
+  temperature: { // °C
+    core: 50,
+    memory: 0,
+    vddc: 0,
+    mvdd: 0,
+    soc: 0,
+    liquid: 0,
+    plx: 0,
+    hotspot: 61.375
+  },
+  load: { // %
+    core: 2,
+    memory: 4,
+    videoengine: 0,
+    videoencode: 0,
+    videodecode: 0,
+    d3d: 3.200708,
+    decode: 0,
+    encode: 0
+  },
+  memory: { // MB
+    free: 70.85547,
+    used: 12288,
+    total: 1604.941
+  },
+  transfer: { // Kbps
+    rx: 0,
+    tx: 0
+  }
+}
+```
+- **Information** `http://localhost:7665/gpu`
+Returns information about your GPU vendor, model, how it's connected, VRAM, deviceID, driver version, used memory, free memory, temperature, power limit, clocks and more.
+Althought, it is not recommended to use this API endpoint to request real time information since it's more task demanding that it's counterpart explained previously.
     ```javascript
       [
         {
