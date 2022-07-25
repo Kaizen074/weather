@@ -20,7 +20,7 @@ try {
         if (uptodate){
             window(app, BrowserWindow, ipcMain, path, settings); // Run Steroid window
             execute(path); // Steroid service execution
-            steroid(); // Aditional steroid functions
+            steroid(settings); // Aditional steroid functions
         };
     }).catch(error => {
         console.log("STEROID COMPONENT ERROR:\n");
