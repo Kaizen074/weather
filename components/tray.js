@@ -18,11 +18,15 @@ exports.tray = (app, Menu, Tray, ipcMain, path, settings, autolaunch, fs) => {
                 fs.writeFileSync(path.join(app.getAppPath(), '/settings.json'), data);
             }},
             {label: 'Allow external connections',  type: 'checkbox', checked: settings.extconn, click: () => {
+                console.log(contextMenu.items[2].submenu.items[1].checked);
                 settings.extconn = contextMenu.items[2].submenu.items[1].checked;
                 let data = JSON.stringify(settings, null, "\t");
                 fs.writeFileSync(path.join(app.getAppPath(), '/settings.json'), data);
-                app.relaunch();
-                app.exit();
+                setTimeout(function(){
+                    app.relaunch();
+                    app.quit();
+                },1000);
+                
             }}
         ]},
         {label: "About", click: () => { require('electron').shell.openExternal('https://steroid-app.github.io')}},
