@@ -5,28 +5,21 @@ const steroidAPI = express();
 
 exports.steroid = (settings) => {
     steroidAPI.use(express.urlencoded({extended: true}));
-    const allowList = ["http://127.0.0.1", "http://localhost", "127.0.0.1", "localhost"]
-    var corsOptionsDelegate = function (req, callback) {
-        let corsOptions;
+    
+    const originFilter = (req, res, next) => {
         if (settings.extconn){
-            corsOptions = { origin: true };
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+            next();
         } else {
-            let origin = {};
-            if (req.header('Origin') == undefined){
-                origin = new URL(req.rawHeaders[1]);
-            }  else {
-                origin = new URL(req.header('Origin'));
-            }
-            if (allowList.indexOf(origin.hostname) !== -1) {
-                corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
-            } else {
-                corsOptions = { origin: false }; // disable CORS for this request
-            }
-        }
-        callback(null, corsOptions); // callback expects two parameters: error and options
-    }
+            const allowList = ["http://127.0.0.1:7665", "http://localhost:7665", "127.0.0.1:7665", "localhost:7665"]
+            if (allowList.indexOf(req.headers.host) !== -1) {
+                next();
+            };
+        };
+    };
 
-    steroidAPI.use(cors(corsOptionsDelegate));
-    steroidAPI.use('/', routes);
+    // steroidAPI.use(cors(corsOptionsDelegate));
+    steroidAPI.use('/', originFilter, routes);
     steroidAPI.listen(7665, '0.0.0.0');
 };
