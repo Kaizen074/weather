@@ -3,11 +3,11 @@ const handler = require('../../modules/system');
 const system = async (req, res) => {
     let data;
     switch(req.query.function){
-        case 'time':
+        case 'uptime':
             data = await handler.time();
             return res.send(data);
         case 'os':
-            data = await handler.osInfo();
+            data = await handler.os();
             return res.send(data);
         case 'uuid':
             data = await handler.uuid();

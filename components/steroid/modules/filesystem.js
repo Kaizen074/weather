@@ -1,7 +1,12 @@
 const si = require('systeminformation');
 const {spawn} = require("child_process");
 
+const usage = require('./usage');
+
 const filesystem = {
+    usage: async () => {
+        return await usage('filesystem');
+    },
     info: async () => {
         let drives = "";
         let data = [];

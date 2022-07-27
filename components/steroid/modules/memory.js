@@ -1,12 +1,11 @@
 const os = require('os');
 const si = require('systeminformation');
 
+const usage = require('./usage');
+
 const memory = {
     usage: async () => {
-        return {
-            totalMb: Number.parseFloat((os.totalmem()/1024)/1024).toFixed(1),
-            freeMb: Number.parseFloat((os.freemem()/1024)/1024).toFixed(1)
-        }
+        return await usage('memory');
     },
     layout: async () => {
         return await si.memLayout();
