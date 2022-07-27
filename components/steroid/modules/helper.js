@@ -5,7 +5,7 @@ const helper = {
         });
         return await response.json();
     },
-    delay:(ms) => {
+    delay: (ms) => {
         return new Promise(resolve => setTimeout(resolve, ms));
     },
     storage: {
