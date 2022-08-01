@@ -5,25 +5,25 @@ const system = {
         return si.time();
     },
     os: async () => {
-        return si.osInfo();
+        return await si.osInfo();
     },
     uuid: async () => {
-        return si.uuid();
+        return await si.uuid();
     },
     users: async () => {
-        return si.users();
+        return await si.users();
     },
     display: async () => {
         return (await si.graphics()).displays;
     },
     processes: async () => {
-        return si.processes();
+        return await si.processes();
     },
     processload: async () => {
-        return si.processLoad('*');
+        return await si.processLoad('*');
     },
     services: async () => {
-        return si.services('*');
+        return await si.services('*');
     }
 }
 
