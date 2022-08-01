@@ -12,7 +12,7 @@ const network = async (req, res) => {
         case 'interfaces':
             data = await handler.interfaces();
             return res.send(data);
-        case 'stats':
+        case 'usage':
             data = await handler.usage();
             return res.send(data);
         case 'connections':
@@ -27,7 +27,7 @@ const network = async (req, res) => {
             return res.send(data);
         case 'hostping':
             if (req.query.ip){
-                data = await handler.hostping(req.query.ip);
+                data = {ms: await handler.hostping(req.query.ip)};
             } else {
                 data = {error: "You must specify an  internal IP on URL query parameters."};
             }
