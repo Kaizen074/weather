@@ -8,10 +8,10 @@ const network = {
         return await si.networkInterfaceDefault();
     },
     defaultgateway: async () => {
-        return  await si.defaultgateway();
+        return  await si.networkGatewayDefault();
     },
     interfaces: async (os) => {
-        return {interfaces: os.networkInterfaces()};
+        return {interfaces: await si.networkInterfaces()};
     },
     usage: async () => {
         return await usage('network');
