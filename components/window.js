@@ -28,7 +28,7 @@ exports.window = (app, BrowserWindow, ipcMain, path, settings) => {
     // window.webContents.openDevTools();
     window.loadFile("render/html/index.html");
     window.once('focus', () => window.flashFrame(false));
-    
+    /*
     ipcMain.on('window-control', (event, arg) => {
         switch(arg){
             case "show": window.show(); break;
@@ -40,4 +40,5 @@ exports.window = (app, BrowserWindow, ipcMain, path, settings) => {
             case "pin": window.isAlwaysOnTop() ? window.setAlwaysOnTop(false) : window.setAlwaysOnTop(true); break;
         }
     });
+    */
 };
