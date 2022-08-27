@@ -232,7 +232,7 @@ There are two ways to request CPU details. One is hooked to the [Metrics API](#m
 
 <br>
 
-### Usage: `http://localhost:7665/cpu?function=usage`
+### `Usage`: *http://localhost:7665/cpu?function=usage*
 
 Real time CPU usage (Individual threads and total), power consumption (Individual and total), voltages and temperature.
 ```javascript
