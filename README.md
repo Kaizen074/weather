@@ -197,13 +197,13 @@ Steroid has many features you can use. All of them are here on the table down be
 
 Minimal Operative System information, for quick request and access.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
 |http://localhost:7665/os| None |
 
-#### `http://localhost:7665/os`
+### `http://localhost:7665/os`
 
 ```javascript
 {
@@ -215,19 +215,24 @@ Minimal Operative System information, for quick request and access.
 }
 ```
 
+<br>
+<hr>
+<br>
+
 ## CPU:
 
 There are two ways to request CPU details. One is hooked to the [Metrics API](#main-areas) and the other one is hooked to the [Native support and information API](#main-areas). Both work in completely different ways and are designed to be complementary to each other.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
 |http://localhost:7665/cpu| [?function=usage](#usage-httplocalhost7665cpufunctionusage) |
 | | [?function=info](#information-httplocalhost7665cpufunctioninfo) |
 
+<br>
 
-#### Usage: `http://localhost:7665/cpu?function=usage`
+### Usage: `http://localhost:7665/cpu?function=usage`
 
 Real time CPU usage (Individual threads and total), power consumption (Individual and total), voltages and temperature.
 ```javascript
@@ -258,8 +263,8 @@ Real time CPU usage (Individual threads and total), power consumption (Individua
 "temperature": 41.25001 // T-Junction temperature in °C
 }
 ```
-
-#### Information `http://localhost:7665/cpu?function=info`
+<br>
+### Information `http://localhost:7665/cpu?function=info`
 
 CPU details such as architecture, features, cache size, etc.
 
