@@ -199,7 +199,7 @@ Minimal Operative System information, for quick request and access.
 #### Endpoints:
 
 |Main URL|Query Parameters|
-|-|-|-|
+|-|-|
 |http://localhost:7665/os| None |
 
 #### `http://localhost:7665/os`
@@ -221,7 +221,7 @@ There are two ways to request CPU details. One is hooked to the [Metrics API](#m
 #### Endpoints:
 
 |Main URL|Query Parameters|
-|-|-|-|
+|-|-|
 |http://localhost:7665/cpu| [?function=usage](#usage-httplocalhost7665cpufunctionusage) |
 | | [?function=info](#information-httplocalhost7665cpufunctioninfo) |
 
@@ -304,7 +304,7 @@ Just as the CPU, GPU details have two method of request. One is hooked to the [M
 #### Endpoints:
 
 |Main URL|Query Parameters|
-|-|-|-|
+|-|-|
 |http://localhost:7665/gpu| [?function=usage](#usage-httplocalhost7665gpufunctionusage) |
 | | [?function=info](#information-httplocalhost7665gpufunctioninfo) |
 
@@ -400,7 +400,7 @@ Information about all available USB ports and connections.
 #### Endpoints:
 
 |Main URL|Query Parameters|
-|-|-|-|
+|-|-|
 |http://localhost:7665/usb| None |
 
 #### `http://localhost:7665/usb`
@@ -445,7 +445,7 @@ Available WiFi networks, interfaces and connections.
 #### Endpoints:
 
 |Main URL|Query Parameters|
-|-|-|-|
+|-|-|
 |http://localhost:7665/wifi| [?function=networks](#networks-httplocalhost7665wififunctionnetworks) |
 | | [?function=interfaces](#interfaces-httplocalhost7665wififunctioninterfaces) |
 | | [?function=connections](#connections-httplocalhost7665wififunctionconnections) |
@@ -538,7 +538,7 @@ All available audio input and outputs.
 #### Endpoints:
 
 |Main URL|Query Parameters|
-|-|-|-|
+|-|-|
 |http://localhost:7665/audio| None |
 
 
@@ -581,7 +581,7 @@ All available audio input and outputs.
 #### Endpoints:
 
 |Main URL|Query Parameters|
-|-|-|-|
+|-|-|
 |http://localhost:7665/audio| None |
 
 
@@ -624,7 +624,7 @@ Usage and memory layout, including frequency, type, slot and latency.
 #### Endpoints:
 
 |Main URL|Query Parameters|
-|-|-|-|
+|-|-|
 |http://localhost:7665/memory| [?function=usage](#usage-httplocalhost7665memoryfunctionusage) |
 | | [?function=layout](#layout-httplocalhost7665memoryfunctionlayout) |
 
@@ -679,39 +679,511 @@ Usage and memory layout, including frequency, type, slot and latency.
 #### Endpoints:
 
 |Main URL|Query Parameters|
-|-|-|-|
-|http://localhost:7665/system| [?function=uptime]() |
-| | [?function=os]() |
-| | [?function=uuid]() |
-| | [?function=users]() |
-| | [?function=display]() |
-| | [?function=processes]() |
-| | [?function=processload]() |
-| | [?function=services]() |
+|-|-|
+|http://localhost:7665/system| [?function=uptime](#uptime-httplocalhost7665systemfunctionuptime) |
+| | [?function=os](#os-httplocalhost7665systemfunctionos) |
+| | [?function=uuid](#uuid-httplocalhost7665systemfunctionuuid) |
+| | [?function=users](#users-httplocalhost7665systemfunctionusers) |
+| | [?function=display](#display-httplocalhost7665systemfunctiondisplay) |
 
 
-#### Usage `http://localhost:7665/memory?function=usage`
+|To be added|
+|-|
+| [?function=processes](#processes-httplocalhost7665systemfunctionprocesses) |
+| [?function=processload](#process-load-httplocalhost7665systemfunctionprocessload) |
+| [?function=services](#services-httplocalhost7665systemfunctionservices) |
+
+
+#### Uptime `http://localhost:7665/system?function=uptime`
+
+Time that it is now, uptime of your PC, timezone and timezone location.
+
 ```javascript
 {
-  "free": 8.966358,
-  "name": "Generic Memory",
-  "usage": 43.7829,
-  "used": 6.983162
+  "current": 1659052893441,
+  "uptime": 266518,
+  "timezone": "GMT-0300",
+  "timezoneName": "America/Buenos_Aires"
 }
 ```
 
-| | [/system](#system) | `GET` |
-| | [/network](#network) | `GET` |
-| | [/printer](#printer) | `GET` |
-| | [/battery](#battery) | `GET` |
-| | [/bluetooth](#bluetooth) | `GET` |
-| | [/filesystem](#filesystem) | `GET` |
+#### OS `http://localhost:7665/system?function=os`
+
+Complete set of information about your operative system.
+
+```javascript
+{
+  "platform": "Windows",
+  "distro": "Microsoft Windows 10 Pro",
+  "release": "10.0.19044",
+  "codename": "",
+  "kernel": "10.0.19044",
+  "arch": "x64",
+  "hostname": "N0XT-PC",
+  "fqdn": "N0XT-PC",
+  "codepage": " 850",
+  "logofile": "windows",
+  "serial": "XXXXX-XXXXX-XXXXX-XXXXX",
+  "build": "19044",
+  "servicepack": "0.0",
+  "uefi": false,
+  "hypervisor": false,
+  "remoteSession": false
+}
+```
+
+#### UUID `http://localhost:7665/system?function=uuid`
+
+User identifiers like your OS, hardware and MAC addresses.
+
+> This information is very sensitive, please be careful when you use it. Users identifiers are no joke, and they have the same value as a fingerprint, but in this case, a virtual fingerprint of your computer.
+
+```javascript
+{
+  "os": "XXXXXXXX-280d-XXXX-82ac-XXXXXXXXXXXX",
+  "hardware": "XXXXXXXX-0499-XXXX-1106-XXXXXXXXXXXX",
+  "macs": [
+      "XX:XX:XX:XX:XX:XX",
+      "XX:XX:XX:XX:XX:XX"
+  ]
+}
+```
+
+#### Users `http://localhost:7665/system?function=users`
+
+Registered users on your computer.
+
+```javascript
+[
+  {
+    "user": "N0XT",
+    "tty": "console",
+    "date": "2022-07-27",
+    "time": "13:00",
+    "ip": "",
+    "command": ""
+  },
+  ...
+]
+```
+
+#### Display `http://localhost:7665/system?function=display`
+
+Details about every screen connected to your PC, including resolution, name, sizes, position and pixel depth.
+
+```javascript
+[
+  {
+    "vendor": "(Tipo de monitor estándar)",
+    "model": "Monitor PnP genérico",
+    "deviceName": "\\\\.\\DISPLAY1",
+    "main": true,
+    "builtin": false,
+    "connection": "HDMI",
+    "resolutionX": 2560,
+    "resolutionY": 1080,
+    "sizeX": 67,
+    "sizeY": 28,
+    "pixelDepth": "32",
+    "currentResX": 2560,
+    "currentResY": 1080,
+    "positionX": 0,
+    "positionY": 0
+  },{
+    "vendor": "",
+    "model": "",
+    "deviceName": "\\\\.\\DISPLAY2",
+    "main": false,
+    "builtin": false,
+    "connection": "DVI",
+    "resolutionX": 1920,
+    "resolutionY": 1080,
+    "sizeX": 52,
+    "sizeY": 29,
+    "pixelDepth": "32",
+    "currentResX": 1920,
+    "currentResY": 1080,
+    "positionX": 2560,
+    "positionY": 467
+  }
+]
+```
+
+### Network:
+
+Usage, interfaces, gateway, statistics, connections and pings.
+
+#### Endpoints:
+
+|Main URL|Query Parameters|
+|-|-|
+|http://localhost:7665/network| [?function=defaultinterface](#default-interface-httplocalhost7665networkfunctiondefaultinterface) |
+| | [?function=defaultgateway](#default-gateway-httplocalhost7665networkfunctiondefaultgateway) |
+| | [?function=interfaces](#interfaces-httplocalhost7665networkfunctioninterfaces) |
+| | [?function=usage](#usage-httplocalhost7665networkfunctionusage) |
+| | [?function=connections](#connections-httplocalhost7665networkfunctionconnections) |
+| | [?function=urlping](#url-ping-httplocalhost7665networkfunctionurlping) |
+| | [?function=hostping](#host-ping-httplocalhost7665networkfunctionhostping) |
+
+#### Default Interface `http://localhost:7665/network?function=defaultinterface`
+
+Default internet connection interface
+
+```javascript
+'Ethernet'
+```
+
+#### Default Gateway `http://localhost:7665/network?function=defaultgateway`
+
+Default internet connection gateway (Router + Main IP of your closest local network)
+
+```javascript
+'192.168.1.1'
+```
+
+#### Interfaces `http://localhost:7665/network?function=interfaces`
+
+Network interfaces, including virtual ones and VPN.
+
+```javascript
+{
+  "interfaces": [
+    {
+        "iface": "Ethernet",
+        "ifaceName": "Realtek Gaming GbE Family Controller",
+        "default": true,
+        "ip4": "192.168.1.49",
+        "ip4subnet": "255.255.255.0",
+        "ip6": "fe80::bc25:5c29:dfb9:7249",
+        "ip6subnet": "ffff:ffff:ffff:ffff::",
+        "mac": "XX:XX:99:e8:11:XX",
+        "internal": false,
+        "virtual": false,
+        "operstate": "up",
+        "type": "wired",
+        "duplex": "",
+        "mtu": "",
+        "speed": 1000,
+        "dhcp": true,
+        "dnsSuffix": "",
+        "ieee8021xAuth": "Unknown",
+        "ieee8021xState": "Unknown",
+        "carrierChanges": 0
+    },
+    {
+        "iface": "Npcap Loopback Adapter",
+        "ifaceName": "VirtualBox Host-Only Ethernet Adapter",
+        "default": false,
+        "ip4": "192.168.56.1",
+        "ip4subnet": "255.255.255.0",
+        "ip6": "fe80::684a:956a:4390:1fce",
+        "ip6subnet": "ffff:ffff:ffff:ffff::",
+        "mac": "0a:00:27:00:00:19",
+        "internal": true,
+        "virtual": false,
+        "operstate": "up",
+        "type": "wired",
+        "duplex": "",
+        "mtu": "",
+        "speed": 1000,
+        "dhcp": false,
+        "dnsSuffix": "",
+        "ieee8021xAuth": "Unknown",
+        "ieee8021xState": "Unknown",
+        "carrierChanges": 0
+    },
+    ...
+  ]
+}
+```
+
+#### Usage `http://localhost:7665/network?function=usage`
+
+Network usage statistics.
+
+```javascript
+[
+  {
+    "data": {
+        "downloaded": 26.4314, // GB
+        "uploaded": 7.006996 // GB
+    },
+    "name": "Ethernet",
+    "speed": {
+        "download": 4193.59, // KB/s
+        "upload": 2778.327 // KB/s
+    },
+    "usage": 0.005577534 // %
+  },
+  ...
+]
+```
+
+#### Connections `http://localhost:7665/network?function=connections`
+
+List of all connections open on your PC.
+
+```javascript
+[
+  ...,
+  {
+    "protocol": "tcp",
+    "localAddress": "127.0.0.1",
+    "localPort": "22569",
+    "peerAddress": "0.0.0.0",
+    "peerPort": "0",
+    "state": "LISTEN",
+    "pid": 2308,
+    "process": ""
+  },
+  {
+    "protocol": "tcp",
+    "localAddress": "127.0.0.1",
+    "localPort": "27017",
+    "peerAddress": "0.0.0.0",
+    "peerPort": "0",
+    "state": "LISTEN",
+    "pid": 4640,
+    "process": ""
+  },
+  ...
+]
+```
+
+#### URL Ping `http://localhost:7665/network?function=urlping`
+
+Pings an specific URL.
+
+**Usage**:
+
+- Make sure to specify the URL you want to ping, including their protocol.
+- `http://localhost:7665/network?function=urlping&url=https://google.com.ar`
+
+```javascript
+{
+  "url": "https://google.com.ar",
+  "ok": true,
+  "status": 301,
+  "ms": 88
+}
+```
+
+#### Host Ping `http://localhost:7665/network?function=hostping`
+
+Pings an specific IP.
+
+**Usage**:
+
+- Make sure to specify the IP you want to ping.
+- `http://localhost:7665/network?function=hostping&url=192.168.1.1`
+
+```javascript
+{
+  "ms": 1
+}
+```
+
+### Printer:
+
+Available printers/connected to your computer.
+
+#### Endpoints:
+
+|Main URL|Query Parameters|
+|-|-|
+|http://localhost:7665/printer| |
+
+
+```javascript
+[
+    {
+        "id": 1,
+        "name": "OneNote for Windows 10",
+        "model": "Microsoft Software Printer Driver",
+        "uri": null,
+        "uuid": null,
+        "status": "Idle",
+        "local": true,
+        "default": false,
+        "shared": false
+    },
+    ...,
+    {
+        "id": 6,
+        "name": "Fax",
+        "model": "Microsoft Shared Fax Driver",
+        "uri": null,
+        "uuid": null,
+        "status": "Idle",
+        "local": true,
+        "default": false,
+        "shared": false
+    },
+    ...
+]
+```
+
+### Battery:
+
+Battery capacity remaining on your laptop, cycles, charging state, capacity, percentage, voltage, model, etc.
+
+#### Endpoints:
+
+|Main URL|Query Parameters|
+|-|-|
+|http://localhost:7665/battery| |
+
+
+```javascript
+{
+  "hasBattery": false,
+  "cycleCount": 0,
+  "isCharging": false,
+  "designedCapacity": 0,
+  "maxCapacity": 0,
+  "currentCapacity": 0,
+  "voltage": 0,
+  "capacityUnit": "",
+  "percent": 0,
+  "timeRemaining": null,
+  "acConnected": true,
+  "type": "",
+  "model": "",
+  "manufacturer": "",
+  "serial": ""
+}
+```
+
+### Bluetooth:
+
+Bluetooth devices connected to your PC, name, battery percentage, type, etc.
+
+#### Endpoints:
+
+|Main URL|Query Parameters|
+|-|-|
+|http://localhost:7665/bluetooth| |
+
+
+```javascript
+[
+  {
+    device: 'Magic Mouse 2',
+    name: 'My Maus',
+    manufacturer: 'Broadcom (0x5, 0x240C)',
+    macDevice: '10-XX-XX-XX-XX-XX',
+    macHost: '20-XX-XX-XX-XX-XX',
+    batteryPercent: '74%',
+    type: 'Mouse',
+    connected: true
+  },
+  {
+    device: 'Magic Keyboard with Numeric Keypad',
+    name: 'My Keyboard',
+    manufacturer: 'Broadcom (0x5, 0x240C)',
+    macDevice: '10-XX-XX-XX-XX-XX',
+    macHost: '20-XX-XX-XX-XX-XX',
+    batteryPercent: '75%',
+    type: 'Keyboard',
+    connected: true
+  },
+]
+```
+
+### Filesystem:
+
+Complete map of drives installed in your computer, information about them, layout and block sizes.
+
+> Recommended to use `usage` for drives usage, other functions exist merely to return static information.
+
+#### Endpoints:
+
+|Main URL|Query Parameters|
+|-|-|
+|http://localhost:7665/filesystem| [?function=usage](#filesystem-usage-httplocalhost7665filesystemfunctionusage) |
+| | [?function=info](#filesystem-information-httplocalhost7665filesystemfunctioninfo) |
+| | [?function=layout](#) |
+| | [?function=block](#) |
+
+
+#### Filesystem Usage `http://localhost:7665/filesystem?function=usage`
+
+Returns total activity of all drives installed, including their temperature and usage.
+
+```javascript
+[
+  {
+    activity: {
+        total: 1.178733, // %
+        write: 0.8715305 // %
+    },
+    name: "XPG SPECTRIX S40G",
+    rates: {
+        read: 168930.8, // KB/s
+        write: 113660.1 // KB/s
+    },
+    temperature: 46,
+    used: 79.74038 // %
+  },
+  ...
+  {
+    activity: {
+        total: 0.00003696686,
+        write: 0
+    },
+    name: "ST500LM012 HN-M500MBB",
+    rates: {
+        read: 0,
+        write: 0
+    },
+    temperature: 30,
+    used: 71.44792
+  }
+]
+```
+
+#### Filesystem Information `http://localhost:7665/filesystem?function=info`
+
+Returns total activity of all drives installed, including their temperature and usage.
+
+```javascript
+[
+  {
+    activity: {
+        total: 1.178733, // %
+        write: 0.8715305 // %
+    },
+    name: "XPG SPECTRIX S40G",
+    rates: {
+        read: 168930.8, // KB/s
+        write: 113660.1 // KB/s
+    },
+    temperature: 46,
+    used: 79.74038 // %
+  },
+  ...
+  {
+    activity: {
+        total: 0.00003696686,
+        write: 0
+    },
+    name: "ST500LM012 HN-M500MBB",
+    rates: {
+        read: 0,
+        write: 0
+    },
+    temperature: 30,
+    used: 71.44792
+  }
+]
+```
+
 | | [/motherboard](#motherboard) | `GET` |
 
 #
 
 ## Credits
-Steroid is heavily inspired on **[Rainmeter](https://www.rainmeter.net/)**, as an effort to provide a native-like service and experience for **[Wallpaper Engine](https://www.wallpaperengine.io)** users who would like to stay on the JavaScript side of the moon.
+Steroid is heavily inspired on **[Rainmeter](https://www.rainmeter.net/)**, as an effort to provide a native-like service and experience for  users who would like to stay on the JavaScript side of the moon.
 
 ## License
 [CC BY NC SA 4.0](LICENSE)
