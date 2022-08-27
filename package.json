@@ -10,15 +10,13 @@
         "compile": "electron-packager . steroid --overwrite --platform=win32 --out=dist --version-string.FileDescription='Wallpaper engine web extension running on steroids' --version-string.ProductName='Steroid' --win32metadata.requested-execution-level=highestAvailable --icon=./favicon.ico"
     },
     "devDependencies": {
-        "electron": "^17.1.2",
-        "electron-packager": "^15.2.0",
+        "electron": "^20.0.3",
+        "electron-packager": "^16.0.0",
         "electron-reload": "^1.5.0"
     },
     "dependencies": {
-        "@ivanbogaeb/sakura": "^1.0.2",
-        "adm-zip": "^0.5.9",
+        "@ivanbogaeb/sakura": "github:ivanbogaeb/sakura#development",
         "axios": "^0.27.2",
-        "compare-versions": "^4.1.3",
         "cors": "^2.8.5",
         "express": "^4.17.1",
         "systeminformation": "^5.9.15"
