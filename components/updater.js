@@ -20,7 +20,7 @@ const updater = async (app, path, Sakura) => {
         let sakura = new Sakura({
             gitUsername: 'ivanbogaeb',
             gitRepository: 'steroid-app',
-            privateToken: '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',
+            privateToken: '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',
             installationDirectory: path.join(__dirname, '../'),
             hasExecutable: true,
             executableName: 'steroid.exe',
