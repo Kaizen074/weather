@@ -191,8 +191,9 @@ Steroid has many features you can use. All of them are here on the table down be
 | | [/filesystem](#filesystem) | `GET` |
 
 <br>
+<br>
 
-### OS:
+## OS:
 
 Minimal Operative System information, for quick request and access.
 
@@ -214,7 +215,7 @@ Minimal Operative System information, for quick request and access.
 }
 ```
 
-### CPU:
+## CPU:
 
 There are two ways to request CPU details. One is hooked to the [Metrics API](#main-areas) and the other one is hooked to the [Native support and information API](#main-areas). Both work in completely different ways and are designed to be complementary to each other.
 
