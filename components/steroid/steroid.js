@@ -1,6 +1,6 @@
 const routes = require('./routes/routes.js');
 const express = require("express");
-const cors = require("cors");
+
 const steroidAPI = express();
 
 exports.steroid = (settings) => {
@@ -19,7 +19,6 @@ exports.steroid = (settings) => {
         };
     };
 
-    // steroidAPI.use(cors(corsOptionsDelegate));
     steroidAPI.use('/', originFilter, routes);
     steroidAPI.listen(7665, '0.0.0.0');
 };

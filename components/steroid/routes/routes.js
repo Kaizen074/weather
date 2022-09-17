@@ -1,5 +1,4 @@
-const express = require('express');
-const router = express.Router();
+const { router } = require('express');
 
 const controller = {
     hello: require('./controller/hello'),
@@ -18,7 +17,9 @@ const controller = {
     bluetooth: require('./controller/bluetooth'),
     filesystem: require('./controller/filesystem'),
     motherboard: require('./controller/motherboard'),
-}
+};
+
+// GET REQUESTS
 router.get('/', controller.hello);
 router.get('/os', controller.os);
 router.get('/cpu', controller.cpu);
@@ -35,6 +36,7 @@ router.get('/bluetooth', controller.bluetooth);
 router.get('/filesystem', controller.filesystem);
 router.get('/motherboard', controller.motherboard);
 
+// POST REQUESTS
 router.post('/execute', controller.execute);
 
 module.exports = router;

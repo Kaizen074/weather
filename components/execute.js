@@ -8,4 +8,4 @@ exports.execute = (path) => {
     child.stderr.on('data', data => {
         console.error(`stderr: ${data}`);
     });
-}
+};

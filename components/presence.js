@@ -1,5 +1,5 @@
 exports.discordPresence = () => {
-    // const clientId = '853837896369045544';
+    // const clientId = '';
     // const discordRPC = require('discord-rpc');
     // const rpc = new discordRPC.Client({transport: 'ipc'});
     // const startTimestamp = Date.now();
@@ -15,7 +15,7 @@ exports.discordPresence = () => {
     //             details: 'WALLPAPER NAME',
     //             startTimestamp: startTimestamp,
     //             largeImageKey: 'steroid-profile-dark',
-    //             largeImageText: 'Wallpaper Engine Web Extension (v0.97-alpha)',
+    //             largeImageText: 'Wallpaper Engine Web Extension (v0.6.8-alpha)',
     //             instance: false,
     //             buttons: [
     //                 {

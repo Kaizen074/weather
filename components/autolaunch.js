@@ -1,7 +1,7 @@
-exports.autolaunch = (path, app, action) => {
+exports.autolaunch = (app, action) => {
     const { spawn } = require('child_process');
     const process = require('process');
-    let schtasks;
+    var schtasks;
     switch(action){
         case 'create':
             schtasks = spawn('powershell.exe', [
@@ -23,5 +23,5 @@ exports.autolaunch = (path, app, action) => {
                 '/f',
             ]);
             break;
-    }
-}
+    };
+};

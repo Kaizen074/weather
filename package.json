@@ -15,9 +15,7 @@
         "electron-reload": "^1.5.0"
     },
     "dependencies": {
-        "@ivanbogaeb/sakura": "github:ivanbogaeb/sakura#development",
-        "axios": "^0.27.2",
-        "cors": "^2.8.5",
+        "@ivanbogaeb/sakura": "^1.0.4",
         "express": "^4.17.1",
         "systeminformation": "^5.9.15"
     }

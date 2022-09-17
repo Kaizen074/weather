@@ -9,9 +9,9 @@ exports.tray = (app, Menu, Tray, ipcMain, path, settings, autolaunch, fs) => {
         {label: 'Settings', submenu: [
             {label: 'Run on startup',  type: 'checkbox', checked: settings.autoexec, click: () => {
                 if (contextMenu.items[2].submenu.items[0].checked){
-                    autolaunch(path, app, 'create');
+                    autolaunch(app, 'create');
                 } else {
-                    autolaunch(path, app, 'delete');
+                    autolaunch(app, 'delete');
                 }
                 settings.autoexec = contextMenu.items[2].submenu.items[0].checked;
                 let data = JSON.stringify(settings, null, "\t");
@@ -26,7 +26,6 @@ exports.tray = (app, Menu, Tray, ipcMain, path, settings, autolaunch, fs) => {
                     app.relaunch();
                     app.quit();
                 },1000);
-                
             }}
         ]},
         {label: "About", click: () => { require('electron').shell.openExternal('https://steroid-app.github.io')}},
