@@ -44,9 +44,9 @@ and integrate systems more effectively.
       - [Bluetooth](#bluetooth)
       - [Filesystem](#filesystem)
       - [Motherboard](#motherboard)
-      - [Program execution]()
-      - [Widgets]()
-      - [Notes and schedule]()
+      - [Program execution](#program-execution)
+      - [Widgets]() **(Not implemented yet)**
+      - [Notes and schedule]() **(Not implemented yet)**
   - [Credits](#credits)
   - [License](#license)
 
@@ -54,7 +54,6 @@ and integrate systems more effectively.
 
 ## Features
 
-- [ ] File handling.
 - [ ] Native widgets.
 - [ ] Notes and schedule.
 - [X] Extense computer metrics.
@@ -65,18 +64,15 @@ and integrate systems more effectively.
 
 ## To-do:
 
-- [ ] File handling.
 - [ ] Native widgets.
 - [ ] Notes and schedules.
 
 <br>
 
 ## Download
+[Steroid-Setup-x64.zip](https://github.com/ivanbogaeb/steroid-app/releases)
+> Steroid is currently on Alpha stage, which means that ONLY the features showcased on this documentation are available.
 
-> **Steroid is on alpha stage, and it's not ready to be released to the public yet.
-> If you want to be part of the alpha testing community, you can do so by sending an email at:**
->
-> steroid@outlook.com.ar
 
 <br>
 
@@ -232,7 +228,7 @@ There are two ways to request CPU details. One is hooked to the [Metrics API](#m
 
 <br>
 
-### `Usage`: *http://localhost:7665/cpu?function=usage*
+### Usage: `http://localhost:7665/cpu?function=usage`
 
 Real time CPU usage (Individual threads and total), power consumption (Individual and total), voltages and temperature.
 ```javascript
@@ -263,7 +259,9 @@ Real time CPU usage (Individual threads and total), power consumption (Individua
 "temperature": 41.25001 // T-Junction temperature in °C
 }
 ```
+
 <br>
+
 ### Information `http://localhost:7665/cpu?function=info`
 
 CPU details such as architecture, features, cache size, etc.
@@ -297,24 +295,30 @@ CPU details such as architecture, features, cache size, etc.
 }
 ```
 
-### GPU:
+<br>
+<hr>
+<br>
+
+## GPU:
 
 Just as the CPU, GPU details have two method of request. One is hooked to the [Metrics API](#main-areas) and the other one is hooked to the [Native support and information API](#main-areas). Both work in completely different ways and are designed to be complementary to each other.
 
-#### Support:
+### Support:
   - AMD Integrated Graphics.
   - Intel Integrated Graphics.
   - AMD. ***(Being worked on)***
   - Nvidia.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
 |http://localhost:7665/gpu| [?function=usage](#usage-httplocalhost7665gpufunctionusage) |
 | | [?function=info](#information-httplocalhost7665gpufunctioninfo) |
 
-#### Usage: `http://localhost:7665/gpu?function=usage`
+<br>
+
+### Usage: `http://localhost:7665/gpu?function=usage`
 
 Real time GPU usage, voltages for cores, chip and memory, power consumption of every core component, clock speeds of the core and memory, temperatures across the card, load and type, memory usage and transfer bandwidth.
 ```javascript
@@ -368,7 +372,9 @@ Real time GPU usage, voltages for cores, chip and memory, power consumption of e
 }
 ```
 
-#### Information: `http://localhost:7665/gpu?function=info`
+<br>
+
+### Information: `http://localhost:7665/gpu?function=info`
 
 Returns information about your GPU vendor, model, how it's connected, VRAM, deviceID, driver version, used memory, free memory, temperature, power limit, clocks and more.
 > Althought, it is not recommended to use this API endpoint to request real time information, since it slower and task demanding.
@@ -399,17 +405,23 @@ Returns information about your GPU vendor, model, how it's connected, VRAM, devi
 ]
 ```
 
-### USB:
+<br>
+<hr>
+<br>
+
+## USB:
 
 Information about all available USB ports and connections.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
 |http://localhost:7665/usb| None |
 
-#### `http://localhost:7665/usb`
+<br>
+
+### `http://localhost:7665/usb`
 
 ```javascript
 {
@@ -444,11 +456,15 @@ Information about all available USB ports and connections.
 }
 ```
 
-### WiFi:
+<br>
+<hr>
+<br>
+
+## WiFi:
 
 Available WiFi networks, interfaces and connections.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
@@ -456,7 +472,9 @@ Available WiFi networks, interfaces and connections.
 | | [?function=interfaces](#interfaces-httplocalhost7665wififunctioninterfaces) |
 | | [?function=connections](#connections-httplocalhost7665wififunctionconnections) |
 
-#### Networks `http://localhost:7665/wifi?function=networks`
+<br>
+
+### Networks `http://localhost:7665/wifi?function=networks`
 
 All available WiFi networks around you.
 
@@ -499,7 +517,9 @@ All available WiFi networks around you.
 ]
 ```
 
-#### Interfaces `http://localhost:7665/wifi?function=interfaces`
+<br>
+
+### Interfaces `http://localhost:7665/wifi?function=interfaces`
 
 Device that you use to connect to internet.
 
@@ -515,7 +535,9 @@ Device that you use to connect to internet.
 ]
 ```
 
-#### Connections `http://localhost:7665/wifi?function=connections`
+<br>
+
+### Connections `http://localhost:7665/wifi?function=connections`
 
 Networks you are connected to.
 
@@ -537,16 +559,19 @@ Networks you are connected to.
 ]
 ```
 
-### Audio:
+<br>
+<hr>
+<br>
+
+## Audio:
 
 All available audio input and outputs.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
 |http://localhost:7665/audio| None |
-
 
 ```javascript
 [
@@ -580,16 +605,19 @@ All available audio input and outputs.
 ]
 ```
 
-### Audio:
+<br>
+<hr>
+<br>
+
+## Audio:
 
 All available audio input and outputs.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
 |http://localhost:7665/audio| None |
-
 
 ```javascript
 [
@@ -623,18 +651,24 @@ All available audio input and outputs.
 ]
 ```
 
-### Memory:
+<br>
+<hr>
+<br>
+
+## Memory:
 
 Usage and memory layout, including frequency, type, slot and latency.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
 |http://localhost:7665/memory| [?function=usage](#usage-httplocalhost7665memoryfunctionusage) |
 | | [?function=layout](#layout-httplocalhost7665memoryfunctionlayout) |
 
-#### Usage `http://localhost:7665/memory?function=usage`
+<br>
+
+### Usage `http://localhost:7665/memory?function=usage`
 ```javascript
 {
   "free": 8.966358,
@@ -644,7 +678,9 @@ Usage and memory layout, including frequency, type, slot and latency.
 }
 ```
 
-#### Layout `http://localhost:7665/memory?function=layout`
+<br>
+
+### Layout `http://localhost:7665/memory?function=layout`
 ```javascript
 [
   {
@@ -678,11 +714,15 @@ Usage and memory layout, including frequency, type, slot and latency.
 ]
 ```
 
-### System:
+<br>
+<hr>
+<br>
 
-Usage and memory layout, including frequency, type, slot and latency.
+## System:
 
-#### Endpoints:
+Overall system information, since bootup date, os build, uuid, users registered and display sizes.
+
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
@@ -699,8 +739,9 @@ Usage and memory layout, including frequency, type, slot and latency.
 | [?function=processload](#process-load-httplocalhost7665systemfunctionprocessload) |
 | [?function=services](#services-httplocalhost7665systemfunctionservices) |
 
+<br>
 
-#### Uptime `http://localhost:7665/system?function=uptime`
+### Uptime `http://localhost:7665/system?function=uptime`
 
 Time that it is now, uptime of your PC, timezone and timezone location.
 
@@ -713,7 +754,9 @@ Time that it is now, uptime of your PC, timezone and timezone location.
 }
 ```
 
-#### OS `http://localhost:7665/system?function=os`
+<br>
+
+### OS `http://localhost:7665/system?function=os`
 
 Complete set of information about your operative system.
 
@@ -738,7 +781,9 @@ Complete set of information about your operative system.
 }
 ```
 
-#### UUID `http://localhost:7665/system?function=uuid`
+<br>
+
+### UUID `http://localhost:7665/system?function=uuid`
 
 User identifiers like your OS, hardware and MAC addresses.
 
@@ -755,7 +800,9 @@ User identifiers like your OS, hardware and MAC addresses.
 }
 ```
 
-#### Users `http://localhost:7665/system?function=users`
+<br>
+
+### Users `http://localhost:7665/system?function=users`
 
 Registered users on your computer.
 
@@ -773,7 +820,9 @@ Registered users on your computer.
 ]
 ```
 
-#### Display `http://localhost:7665/system?function=display`
+<br>
+
+### Display `http://localhost:7665/system?function=display`
 
 Details about every screen connected to your PC, including resolution, name, sizes, position and pixel depth.
 
@@ -815,11 +864,15 @@ Details about every screen connected to your PC, including resolution, name, siz
 ]
 ```
 
+<br>
+<hr>
+<br>
+
 ### Network:
 
 Usage, interfaces, gateway, statistics, connections and pings.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
@@ -831,7 +884,9 @@ Usage, interfaces, gateway, statistics, connections and pings.
 | | [?function=urlping](#url-ping-httplocalhost7665networkfunctionurlping) |
 | | [?function=hostping](#host-ping-httplocalhost7665networkfunctionhostping) |
 
-#### Default Interface `http://localhost:7665/network?function=defaultinterface`
+<br>
+
+### Default Interface `http://localhost:7665/network?function=defaultinterface`
 
 Default internet connection interface
 
@@ -839,7 +894,9 @@ Default internet connection interface
 'Ethernet'
 ```
 
-#### Default Gateway `http://localhost:7665/network?function=defaultgateway`
+<br>
+
+### Default Gateway `http://localhost:7665/network?function=defaultgateway`
 
 Default internet connection gateway (Router + Main IP of your closest local network)
 
@@ -847,7 +904,9 @@ Default internet connection gateway (Router + Main IP of your closest local netw
 '192.168.1.1'
 ```
 
-#### Interfaces `http://localhost:7665/network?function=interfaces`
+<br>
+
+### Interfaces `http://localhost:7665/network?function=interfaces`
 
 Network interfaces, including virtual ones and VPN.
 
@@ -903,7 +962,9 @@ Network interfaces, including virtual ones and VPN.
 }
 ```
 
-#### Usage `http://localhost:7665/network?function=usage`
+<br>
+
+### Usage `http://localhost:7665/network?function=usage`
 
 Network usage statistics.
 
@@ -925,7 +986,9 @@ Network usage statistics.
 ]
 ```
 
-#### Connections `http://localhost:7665/network?function=connections`
+<br>
+
+### Connections `http://localhost:7665/network?function=connections`
 
 List of all connections open on your PC.
 
@@ -956,7 +1019,9 @@ List of all connections open on your PC.
 ]
 ```
 
-#### URL Ping `http://localhost:7665/network?function=urlping`
+<br>
+
+### URL Ping `http://localhost:7665/network?function=urlping`
 
 Pings an specific URL.
 
@@ -974,7 +1039,9 @@ Pings an specific URL.
 }
 ```
 
-#### Host Ping `http://localhost:7665/network?function=hostping`
+<br>
+
+### Host Ping `http://localhost:7665/network?function=hostping`
 
 Pings an specific IP.
 
@@ -989,11 +1056,15 @@ Pings an specific IP.
 }
 ```
 
-### Printer:
+<br>
+<hr>
+<br>
+
+## Printer:
 
 Available printers/connected to your computer.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
@@ -1029,11 +1100,15 @@ Available printers/connected to your computer.
 ]
 ```
 
-### Battery:
+<br>
+<hr>
+<br>
+
+## Battery:
 
 Battery capacity remaining on your laptop, cycles, charging state, capacity, percentage, voltage, model, etc.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
@@ -1060,11 +1135,15 @@ Battery capacity remaining on your laptop, cycles, charging state, capacity, per
 }
 ```
 
-### Bluetooth:
+<br>
+<hr>
+<br>
+
+## Bluetooth:
 
 Bluetooth devices connected to your PC, name, battery percentage, type, etc.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
@@ -1096,13 +1175,17 @@ Bluetooth devices connected to your PC, name, battery percentage, type, etc.
 ]
 ```
 
-### Filesystem:
+<br>
+<hr>
+<br>
+
+## Filesystem:
 
 Complete map of drives installed in your computer, information about them, layout and block sizes.
 
 > Recommended to use `usage` for drives usage, other functions exist merely to return static information.
 
-#### Endpoints:
+### Endpoints:
 
 |Main URL|Query Parameters|
 |-|-|
@@ -1111,44 +1194,9 @@ Complete map of drives installed in your computer, information about them, layou
 | | [?function=layout](#) |
 | | [?function=block](#) |
 
+<br>
 
-#### Filesystem Usage `http://localhost:7665/filesystem?function=usage`
-
-Returns total activity of all drives installed, including their temperature and usage.
-
-```javascript
-[
-  {
-    activity: {
-        total: 1.178733, // %
-        write: 0.8715305 // %
-    },
-    name: "XPG SPECTRIX S40G",
-    rates: {
-        read: 168930.8, // KB/s
-        write: 113660.1 // KB/s
-    },
-    temperature: 46,
-    used: 79.74038 // %
-  },
-  ...
-  {
-    activity: {
-        total: 0.00003696686,
-        write: 0
-    },
-    name: "ST500LM012 HN-M500MBB",
-    rates: {
-        read: 0,
-        write: 0
-    },
-    temperature: 30,
-    used: 71.44792
-  }
-]
-```
-
-#### Filesystem Information `http://localhost:7665/filesystem?function=info`
+### Filesystem Usage `http://localhost:7665/filesystem?function=usage`
 
 Returns total activity of all drives installed, including their temperature and usage.
 
@@ -1184,9 +1232,103 @@ Returns total activity of all drives installed, including their temperature and 
 ]
 ```
 
-| | [/motherboard](#motherboard) | `GET` |
+<br>
 
-#
+### Filesystem Information `http://localhost:7665/filesystem?function=info`
+
+Returns total activity of all drives installed, including their temperature and usage.
+
+```javascript
+[
+  {
+    activity: {
+        total: 1.178733, // %
+        write: 0.8715305 // %
+    },
+    name: "XPG SPECTRIX S40G",
+    rates: {
+        read: 168930.8, // KB/s
+        write: 113660.1 // KB/s
+    },
+    temperature: 46,
+    used: 79.74038 // %
+  },
+  ...
+  {
+    activity: {
+        total: 0.00003696686,
+        write: 0
+    },
+    name: "ST500LM012 HN-M500MBB",
+    rates: {
+        read: 0,
+        write: 0
+    },
+    temperature: 30,
+    used: 71.44792
+  }
+]
+```
+
+<br>
+<hr>
+<br>
+
+## Motherboard:
+
+Motherboard manufacturer, model, maximum memory and memory slots.
+
+### Endpoints:
+
+|Main URL|Query Parameters|
+|-|-|
+|http://localhost:7665/motherboard|  |
+
+
+```javascript
+{
+  manufacturer: "Gigabyte Technology Co., Ltd.",
+  model: "B450M AORUS ELITE",
+  version: "x.x",
+  serial: "Default string",
+  assetTag: "",
+  memMax: 137438953472,
+  memSlots: 4
+}
+```
+
+<br>
+<hr>
+<br>
+
+## Program Execution:
+
+With this feature, you will be able to execute any program `(Except Windows internal components such as CMD, Powershell or any kind of service that could damage your PC)`.
+
+### Endpoints:
+
+|Main URL|Body Parameters|
+|-|-|
+|http://localhost:7665/execute| {"executable": "Your executable path", "parameters": "Your executable Parameters"} |
+
+```javascript
+await fetch(`http://localhost:7665/execute`, {
+  method: 'POST',
+  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+  body: {
+    "executable": "C:/Program Files/Google/Chrome/Application/chrome.exe",
+    "parameters": "--new-window www.google.com"
+  }
+}).then(data => {
+  let {executed, error} = data.json();
+  if (executed){
+    // Succesfully executed!
+  } else {
+    // There has been an issue with your execution!
+    console.log(error);
+  }
+}).catch(error => console.error); // Some higher level of error handling!
+```
 
 ## Credits
 Steroid is heavily inspired on **[Rainmeter](https://www.rainmeter.net/)**, as an effort to provide a native-like service and experience for  users who would like to stay on the JavaScript side of the moon.
