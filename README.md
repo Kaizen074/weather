@@ -47,6 +47,9 @@ and integrate systems more effectively.
       - [Program execution](#program-execution)
       - [Widgets]() **(Not implemented yet)**
       - [Notes and schedule]() **(Not implemented yet)**
+  - [Configuration](#Configuration)
+      - [How can I send my metrics to another PC?]()
+      - [How can I disable Steroid on bootup?]()
   - [Credits](#credits)
   - [License](#license)
 
@@ -87,17 +90,15 @@ and integrate systems more effectively.
 
 <br>
 
-## How to use Steroid
+## What is Steroid exactly?
 
-#### Introduction
+### Introduction
 
-Steroid is based on the K.I.S.S. principle *(Keep it simple, stupid)*.
-
-There is no need to create complex and weird solutions for your wallpaper that might bug your head or keep you awake until 4 AM, we already did that for you! This app has been made so you can simply request information and communicate with your PC using it as middleware.
+Steroid is based on the K.I.S.S. principle *(Keep it simple, stupid)* and allows you to bring native features and information to your wallpapers, without the need to create complex and weird solutions that might bug your head or keep you awake until 4 AM. This app has been made so you can simply request information and communicate with your PC using it as middleware!
 
 > Keep in mind that some features are disabled due to unfinished or unstable features.
 
-#### Functions
+### Functions
 
 Steroid App functions are:
 - Computer metrics.
@@ -106,7 +107,7 @@ Steroid App functions are:
 - Native widgets. **(Still on development)**
 - Notes and schedules. **(Still on development)**
 
-#### Main areas
+### Main areas
 
 Steroid is separated in two main web APIs:
 - **Metrics API**: This API returns all the important metrics of your PC in real time, handled by a program that steroid invokes called `steroid-service.exe`.
@@ -116,18 +117,17 @@ Both of them run on separated ports inside your PC, this allows the user to have
 
 > It is actually recommended to use [steroid-wallpaper](https://github.com/ivanbogaeb/steroid-wallpaper) if you are planning to include online features to your wallpaper in the future.
 
-#### How to talk with Steroid
+<br>
+
+## How can I talk with Steroid?
 
 **It is highly recommended to use [steroid-wallpaper](https://github.com/ivanbogaeb/steroid-wallpaper), since it's a browser friendly wrapper to communicate with Steroid.**
-
 
 Steroid runs on two different ports for each web API:
 - **Metrics API** `(Port 7666)`
 - **Native support and information API** `(Port 7665)`
 
-By hooking up to the **Metrics API** you will be only able to receive information on your `localhost` domain and nowhere else. But, if you connect straight to the **Native support and information API**, you will be able to send metrics over your network to different devices!
-
-In any case, you will have to connect over HTTP REST to `localhost:7666` (Metrics) or `localhost:7665` (Native). Both of them will return a list of commands that you can use when you connect.
+By default, the only port that will be available will be `7665`, and will handle all your wallpaper requests, connecting over HTTP REST to `localhost:7665` and calling the endpoint you want to use.
 
 Here is an example using JavaScript:
 
@@ -1330,8 +1330,27 @@ await fetch(`http://localhost:7665/execute`, {
 }).catch(error => console.error); // Some higher level of error handling!
 ```
 
+<br>
+
+## Configuration
+
+Steroid configuration is rather simple, you can `Right Click` on the Steroid logo in your `Windows Tray` and a few options will show up under the `Settings` tab.
+
+> In it's current state, Steroid doesn't support extensive configuration or modding.
+
+### How can I send my metrics to another PC?
+By clicking on `Allow external connections` under the `Settings` tab, you will be able to request information from another computer or mobile device connected to the same network your computer is.
+You have to consider that you will be required to know your computer IP address in order to achieve this.
+
+### How can I disable Steroid on bootup?
+By clicking on `Run on startup` under the `Settings` tab, you will be able to toggle between launching Steroid at bootup, or not.
+
+<br>
+
 ## Credits
 Steroid is heavily inspired on **[Rainmeter](https://www.rainmeter.net/)**, as an effort to provide a native-like service and experience for  users who would like to stay on the JavaScript side of the moon.
+
+<br>
 
 ## License
 [CC BY NC SA 4.0](LICENSE)
