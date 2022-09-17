@@ -15,9 +15,9 @@ const execute = async (executable, parameters) => {
               throw error; // In case that something happens
             }
         });
-        return {executed: true};
+        return {executed: true, error: ""};
     } else {
-        return {error: "This program cannot be executed."};
+        return {executed: false, error: "This program cannot be executed."};
     };
 };
 

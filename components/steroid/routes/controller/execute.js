@@ -5,7 +5,7 @@ const execute = async (req, res) => {
     if (!!req.body.executable){
         data = await handler(req.body.executable, req.body.parameters);
     } else {
-        data = {error: "Executable error, please add '?executable=EXECUTABLE_PATH' and '?parameters=PARAMS' on URL query parameters."};
+        data = {executed: false, error: "Executable error, please add 'executable: EXECUTABLE_PATH' and 'parameters: PARAMS' to your body request."};
     }
     return res.send(data);
 };
