@@ -1,6 +1,6 @@
-# <center>Steroid ⚡</center>
-### <center>Web wallpapers extension.</center>
-<center>Steroid is a simple web app, that packs all the necessary features to create your own awesome wallpapers and share them with the world, adding new functionalities to wallpaper engines like Rainmeter, Lively Wallpaper and Wallpaper Engine; creating a hybrid between native and web support throught the power of JavaScript applications.</center>
+<h1 align="center">Steroid ⚡</h1>
+<h3 align="center">Web wallpapers extension.</h3>
+<p align="center">Steroid is a simple web app, that packs all the necessary features to create your own awesome wallpapers and share them with the world, adding new functionalities to wallpaper engines like Rainmeter, Lively Wallpaper and Wallpaper Engine; creating a hybrid between native and web support through the power of JavaScript applications.</p>
 
 <br>
 <br>
@@ -22,13 +22,15 @@ and integrate systems more effectively.
 
 ## Table of Contents
 
-  - [Features.](#features)
-  - [To-do.](#to-do)
-  - [Download.](#download)
-  - [Installation.](#installation)
-  - [How to use Steroid.](#how-to-use-steroid)
-    - [Introduction.](#how-to-use-steroid)
-    - [Functions.](#functions)
+  - [Features](#features)
+  - [To-do](#to-do)
+  - [Download](#download)
+  - [Installation](#installation)
+  - [What is Steroid?](#what-is-steroid-exactly)
+    - [Introduction](#introduction)
+    - [Functions](#functions)
+    - [Main Areas](#main-areas)
+   - [How can I talk to Steroid?](#how-can-i-talk-to-steroid)
   - [Reference](#reference)
       - [OS](#os)
       - [CPU](#cpu)
@@ -119,9 +121,9 @@ Both of them run on separated ports inside your PC, this allows the user to have
 
 <br>
 
-## How can I talk with Steroid?
+## How can I talk to Steroid?
 
-**It is highly recommended to use [steroid-wallpaper](https://github.com/ivanbogaeb/steroid-wallpaper), since it's a browser friendly wrapper to communicate with Steroid.**
+**It is highly recommended to use [steroid-wallpaper](https://github.com/ivanbogaeb/steroid-wallpaper), since it's a browser friendly wrapper to communicate with Steroid, including features such as Weather, Spotify and localStorage memory handling.**
 
 Steroid runs on two different ports for each web API:
 - **Metrics API** `(Port 7666)`
