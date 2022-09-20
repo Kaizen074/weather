@@ -1,6 +1,7 @@
 <h1 align="center">Steroid ⚡</h1>
 <h3 align="center">Web wallpapers extension.</h3>
-<p align="center">Steroid is a simple web app, that packs all the necessary features to create your own awesome wallpapers and share them with the world, adding new functionalities to wallpaper engines like Rainmeter, Lively Wallpaper and Wallpaper Engine; creating a hybrid between native and web support through the power of JavaScript applications.</p>
+
+<h4 align="center">Steroid is a simple web app, that packs all the necessary features to create your own awesome wallpapers and share them with the world, adding new functionalities to wallpaper engines like Rainmeter, Lively Wallpaper and Wallpaper Engine; creating a hybrid between native and web support through the power of JavaScript applications.</h4>
 
 <br>
 <br>
