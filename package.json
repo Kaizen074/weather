@@ -7,7 +7,7 @@
     "main": "main.js",
     "scripts": {
         "start": "electron --trace-warnings .",
-        "compile": "electron-packager . steroid --overwrite --platform=win32 --out=dist --version-string.FileDescription='Wallpaper engine web extension running on steroids' --version-string.ProductName='Steroid' --win32metadata.requested-execution-level=highestAvailable --icon=./favicon.ico"
+        "compile": "electron-packager . steroid --overwrite --platform=win32 --out=dist --version-string.FileDescription='Web wallpaper extension running on steroids' --version-string.ProductName='Steroid' --win32metadata.requested-execution-level=highestAvailable --icon=./favicon.ico"
     },
     "devDependencies": {
         "electron": "^20.0.3",
