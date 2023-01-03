@@ -76,7 +76,8 @@ and integrate systems more effectively.
 <br>
 
 ## Download
-[Steroid-Setup-x64.zip](https://github.com/ivanbogaeb/steroid-app/releases)
+
+[0.7.0-alpha](https://github.com/ivanbogaeb/steroid-app/releases)
 > Steroid is currently on Alpha stage, which means that ONLY the features showcased on this documentation are available.
 
 
@@ -84,9 +85,9 @@ and integrate systems more effectively.
 
 ## Installation
 
-- > Download link will be added soon after alpha testing.
-- Execute **`"Steroid-Setup-x64.exe"`**.
-- Read our ToS.
+> This is an alpha stage installation.
+- Download and extract, move to any folder you desire.
+- Execute **`"steroid.exe"`** as `Administrator`.
 - Done, Steroid will be installed on your PC.
 
 > Steroid is going to start on tray and remain waiting in the background, where you can close it or disable it on startup if you want to.
